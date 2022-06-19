@@ -1,14 +1,9 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, unused_import, depend_on_referenced_packages, use_build_context_synchronously, unnecessary_import, camel_case_types, must_be_immutable
+// ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, depend_on_referenced_packages, use_build_context_synchronously, camel_case_types, must_be_immutable
 
-import 'dart:developer';
 import 'package:classchool/intro_screens/set_password.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sign_button/sign_button.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-
 import '../buttons/textfield.dart';
 
 class OtpPage extends StatelessWidget {

@@ -1,17 +1,11 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, unused_import, depend_on_referenced_packages, use_build_context_synchronously, unnecessary_import, camel_case_types, must_be_immutable
+// ignore_for_file: unnecessary_const, prefer_const_constructors,  camel_case_types, must_be_immutable
 
-import 'dart:developer';
 import 'package:classchool/intro_screens/otp_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sign_button/sign_button.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-
 import '../buttons/submit_button.dart';
 import '../buttons/textfield.dart';
-import 'login.dart';
 
 class forgetPassword extends StatelessWidget {
   const forgetPassword({Key? key}) : super(key: key);

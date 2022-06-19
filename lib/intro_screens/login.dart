@@ -1,11 +1,9 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, unused_import, depend_on_referenced_packages, use_build_context_synchronously
+// ignore_for_file: unnecessary_const, prefer_const_constructors,
 
-import 'dart:developer';
 import 'package:classchool/buttons/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sign_button/sign_button.dart';
 import '../buttons/submit_button.dart';
 import 'signup.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
@@ -13,7 +11,7 @@ import 'forget_password.dart';
 
 // ignore: must_be_immutable
 class Login extends StatelessWidget {
-  Login({Key? key}) : super(key: key);
+  const Login({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
