@@ -37,7 +37,7 @@ class Signup extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Lottie.asset('assets/login.json', width: 200),
+                  Lottie.asset('assets/lottie/login.json', width: 200),
                   Text(
                     'Signup Here!',
                     style: GoogleFonts.jost(

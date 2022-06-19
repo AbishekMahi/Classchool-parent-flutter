@@ -35,7 +35,7 @@ class OtpPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Lottie.asset('assets/otp.json', width: 200),
+                  Lottie.asset('assets/lottie/otp.json', width: 200),
                   Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Text(

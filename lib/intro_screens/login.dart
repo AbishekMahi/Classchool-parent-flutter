@@ -36,7 +36,7 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Lottie.asset('assets/login.json', width: 200),
+                  Lottie.asset('assets/lottie/login.json', width: 200),
                   // Lottie.network(
                   //     'https://assets7.lottiefiles.com/packages/lf20_jcikwtux.json',
                   //     width: 250),

@@ -37,7 +37,8 @@ class forgetPassword extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Lottie.asset('assets/forgot_password.json', width: 350),
+                  Lottie.asset('assets/lottie/forgot_password.json',
+                      width: 350),
                   Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Text(
@@ -80,7 +81,7 @@ class forgetPassword extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(
                             color: Colors.white,
-                            width: 2.0, 
+                            width: 2.0,
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(

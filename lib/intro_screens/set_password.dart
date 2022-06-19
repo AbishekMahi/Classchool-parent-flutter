@@ -29,7 +29,7 @@ class SetPassword extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Lottie.asset('assets/set_password.json', width: 250),
+                  Lottie.asset('assets/lottie/set_password.json', width: 250),
                   Text(
                     'Set strong password',
                     style: GoogleFonts.jost(

@@ -40,7 +40,7 @@ class _WelcomeState extends State<Welcome> {
                       mainAxisAlignment: MainAxisAlignment.center,
 
                       children: [
-                        Lottie.asset('assets/student.json', width: 340),
+                        Lottie.asset('assets/lottie/student.json', width: 340),
 
                         // Lottie.network(
                         //     'https://assets5.lottiefiles.com/packages/lf20_yjrdpceb.json',
@@ -84,7 +84,7 @@ class _WelcomeState extends State<Welcome> {
                         // Lottie.network(
                         //     'https://assets6.lottiefiles.com/packages/lf20_5xqvi8pf.json',
                         //     width: 340),
-                        Lottie.asset('assets/map.json', width: 340),
+                        Lottie.asset('assets/lottie/map.json', width: 340),
 
                         Text(
                           textAlign: TextAlign.center,
@@ -120,7 +120,7 @@ class _WelcomeState extends State<Welcome> {
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('images/ptc.png'),
+                        Image.asset('assets/images/ptc.png'),
                         Text(
                           textAlign: TextAlign.center,
                           'Connect With Teachers',
