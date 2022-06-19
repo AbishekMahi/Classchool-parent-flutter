@@ -5,8 +5,10 @@ import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import '../buttons/submit_button.dart';
+import '../buttons/textfield.dart';
+
 class SetPassword extends StatelessWidget {
-  TextEditingController passwordController = TextEditingController();
   SetPassword({Key? key}) : super(key: key);
 
   @override
@@ -41,131 +43,25 @@ class SetPassword extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20, top: 10, bottom: 10, right: 20),
-                    child: TextFormField(
-                      controller: passwordController,
-                      style:
-                          GoogleFonts.jost(fontSize: 22, color: Colors.white),
-                      obscureText: true,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        prefixIcon: const Padding(
-                          padding:
-                              EdgeInsets.all(0), // add padding to adjust icon
-                          child: const Icon(
-                            EvaIcons.lockOutline,
-                            color: Colors.white,
-                          ),
-                        ),
-                        border: InputBorder.none,
-                        labelText: 'New password',
-                        labelStyle: const TextStyle(color: Colors.white),
-                        hintText: 'Enter new password',
-                        hintStyle: const TextStyle(color: Colors.white54),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2.0,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2.0,
-                          ),
-                        ),
-                      ),
-                    ),
+                  TextArea(
+                    labelText: 'New Password',
+                    hintText: 'Enter new password',
+                    prefixIcon: EvaIcons.lockOutline,
+                    obscureText: true,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: 20, top: 10, bottom: 10, right: 20),
-                    child: TextFormField(
-                      controller: passwordController,
-                      style:
-                          GoogleFonts.jost(fontSize: 22, color: Colors.white),
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          prefixIcon: const Padding(
-                            padding:
-                                EdgeInsets.all(0), // add padding to adjust icon
-                            child: const Icon(
-                              EvaIcons.lockOutline,
-                              color: Colors.white,
-                            ),
-                          ),
-                          border: InputBorder.none,
-                          labelText: 'Confirm password',
-                          labelStyle: TextStyle(color: Colors.white),
-                          hintText: 'Re-Enter password',
-                          hintStyle: TextStyle(color: Colors.white54),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              width: 2.0,
-                            ),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                              width: 2.0,
-                            ),
-                          )),
-                    ),
+                  TextArea(
+                    labelText: 'Confirm Password',
+                    hintText: 'Re-Enter password',
+                    prefixIcon: EvaIcons.lockOutline,
+                    obscureText: true,
                   ),
                   SizedBox(
-                    height: 25.0,
+                    height: 20.0,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: 20, right: 20, top: 10, bottom: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.white),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 50, right: 50, top: 16, bottom: 16),
-                            child: Text(
-                              'LET\'S GO',
-                              style: GoogleFonts.jost(
-                                  fontSize: 24,
-                                  color: Color(0XFF7455F7),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => Login(),
-                            //   ),
-                            // );
-                          },
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
+                  Submit_Button(
+                    btntxt: 'LET\'S GO',
+                    fontSize: 24,
+                    ontouch: () {},
                   ),
                   SizedBox(
                     height: 10,

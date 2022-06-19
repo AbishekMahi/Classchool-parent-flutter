@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../buttons/submit_button.dart';
 import 'login.dart';
 
 class Welcome extends StatefulWidget {
@@ -165,47 +166,15 @@ class _WelcomeState extends State<Welcome> {
               ),
 
               // Get started button
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 50, right: 50, top: 16, bottom: 16),
-                        child: Text(
-                          'Get Started',
-                          style: GoogleFonts.jost(
-                              fontSize: 28,
-                              color: Color(0XFF7455F7),
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Login()),
-                        );
-                        //The user picked true.
-                      },
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
+              Submit_Button(
+                btntxt: 'Get Started',
+                fontSize: 28,
+                ontouch: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
+                },
               ),
             ],
           ),

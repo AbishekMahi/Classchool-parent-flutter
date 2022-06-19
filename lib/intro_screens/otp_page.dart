@@ -9,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import '../buttons/textfield.dart';
+
 class OtpPage extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
 
@@ -51,53 +53,18 @@ class OtpPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 20, top: 10, bottom: 10, right: 20),
-                    child: TextFormField(
-                      controller: emailController,
-                      style:
-                          GoogleFonts.jost(fontSize: 22, color: Colors.white),
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        prefixIcon: const Padding(
-                          padding:
-                              EdgeInsets.all(0), // add padding to adjust icon
-                          child: const Icon(
-                            Icons.numbers,
-                            color: Colors.white,
-                          ),
-                        ),
-                        border: InputBorder.none,
-                        labelText: 'Enter the 6-digit code',
-                        labelStyle: const TextStyle(color: Colors.white),
-                        hintText: 'Enter your OTP',
-                        hintStyle: const TextStyle(color: Colors.white54),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2.0,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: const BorderSide(
-                            color: Colors.white,
-                            width: 2.0,
-                          ),
-                        ),
-                      ),
-                    ),
+                  TextArea(
+                    labelText: 'Enter the 6-digit code',
+                    hintText: 'Enter your OTP',
+                    prefixIcon: Icons.numbers,
+                    obscureText: false,
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Padding(
                     padding: EdgeInsets.all(15.0),
-                    child:
-                        //  isLoading ?
-                        ElevatedButton(
+                    child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xFF8EFF6B)),
