@@ -1,23 +1,19 @@
-import 'package:classchool/screens/login_screen.dart';
-import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'intro_screens/welcome.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Classchool());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Classchool extends StatelessWidget {
+  const Classchool({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Class School',
-      theme: ThemeData(
-        primaryColor: appTheme
-      ),
-      home:const LoginScreen(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Classchool',
+      home: Welcome(),
     );
   }
 }
-
