@@ -7,6 +7,7 @@ class Submit_Button extends StatelessWidget {
   final String btntxt;
   final double? fontSize;
   final void Function() ontouch;
+
   const Submit_Button({
     Key? key,
     required this.btntxt,

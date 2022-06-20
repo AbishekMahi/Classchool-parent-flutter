@@ -8,13 +8,21 @@ import '../buttons/submit_button.dart';
 import '../buttons/textfield.dart';
 
 class forgetPassword extends StatelessWidget {
-  const forgetPassword({Key? key}) : super(key: key);
+  forgetPassword({Key? key}) : super(key: key);
+  final _formKey = GlobalKey<FormState>();
+  var isLoading = false;
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        // backgroundColor: Color(0xFF262525),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -27,70 +35,83 @@ class forgetPassword extends StatelessWidget {
             child: SingleChildScrollView(
               padding: EdgeInsets.all(10),
               reverse: true,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Lottie.asset('assets/lottie/forgot_password.json',
-                      width: 350),
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Text(
-                      'Forgot password? Don\'t worry, \njust a common human error here you can change new one.',
-                      textAlign: TextAlign.center,
-                      // overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.jost(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextArea(
-                    labelText: 'Phone number',
-                    hintText: '+91 00000 00000',
-                    prefixIcon: Icons.phone_outlined,
-                    obscureText: false,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Submit_Button(
-                    btntxt: 'SUBMIT',
-                    fontSize: 24,
-                    ontouch: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OtpPage(),
-                        ),
-                      );
-                    },
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                    width: 150,
-                    child: Divider(
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Check your inbox to get your code.',
-                        style:
-                            GoogleFonts.jost(fontSize: 22, color: Colors.white),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Lottie.asset('assets/lottie/forgot_password.json',
+                        width: 350),
+                    Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Text(
+                        'Forgot password? Don\'t worry, \njust a common human error here you can change new one.',
+                        textAlign: TextAlign.center,
+                        // overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.jost(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                            color: Colors.white),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextArea(
+                      labelText: 'Phone number',
+                      hintText: '+91 00000 00000',
+                      prefixIcon: Icons.phone_outlined,
+                      obscureText: false,
+                      keyboardType: TextInputType.phone,
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r'^(?:[+0][1-9])?[0-9]{10,12}$')
+                                .hasMatch(value)) {
+                          return 'Invalid Phone number!';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Submit_Button(
+                      btntxt: 'SUBMIT',
+                      fontSize: 24,
+                      ontouch: () {
+                        _submit();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OtpPage(),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                      width: 150,
+                      child: Divider(
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Check your inbox to get your code.',
+                          style: GoogleFonts.jost(
+                              fontSize: 22, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
