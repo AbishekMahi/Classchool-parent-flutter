@@ -10,7 +10,7 @@ class TextArea extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
-  TextArea({
+  const TextArea({
     Key? key,
     required this.labelText,
     required this.hintText,
@@ -20,15 +20,13 @@ class TextArea extends StatelessWidget {
     this.validator,
     this.keyboardType,
   }) : super(key: key);
-  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+      padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        // controller: emailController,
-        style: GoogleFonts.jost(fontSize: 22, color: Colors.white),
+        style: GoogleFonts.jost(fontSize: 20, color: Colors.white),
         keyboardType: keyboardType,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -64,7 +62,7 @@ class TextArea extends StatelessWidget {
           ),
           errorStyle: GoogleFonts.jost(
             color: const Color(0xFFC70D00),
-            fontSize: 20,
+            fontSize: 15,
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
@@ -109,11 +107,11 @@ class _PwAreaState extends State<PwArea> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+      padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
       child: TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: passwordController,
-          style: GoogleFonts.jost(fontSize: 22, color: Colors.white),
+          style: GoogleFonts.jost(fontSize: 20, color: Colors.white),
           keyboardType: TextInputType.visiblePassword,
           obscureText: _isHidden,
           decoration: InputDecoration(
@@ -163,7 +161,7 @@ class _PwAreaState extends State<PwArea> {
             ),
             errorStyle: GoogleFonts.jost(
               color: const Color(0xFFC70D00),
-              fontSize: 20,
+              fontSize: 15,
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),

@@ -42,7 +42,7 @@ class SetPassword extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/set_password.json', width: 250),
+                    Lottie.asset('assets/lottie/set_password.json', width: 200),
                     Text(
                       'Set strong password',
                       style: GoogleFonts.jost(
@@ -53,6 +53,21 @@ class SetPassword extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 10,
+                    ),
+                    TextArea(
+                      labelText: 'Email address',
+                      hintText: 'yourname@domain.com',
+                      prefixIcon: Icons.mail_outlined,
+                      obscureText: false,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value!.isEmpty ||
+                            !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(value)) {
+                          return 'Enter a valid Email!';
+                        }
+                        return null;
+                      },
                     ),
                     PwArea(
                       labelText: 'New Password',

@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, depend_on_referenced_packages, use_build_context_synchronously, camel_case_types, must_be_immutable
 
-
 import 'package:classchool/screens/intro_screens/set_password.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -91,10 +90,10 @@ class OtpPage extends StatelessWidget {
                           padding: const EdgeInsets.all(10.0),
                           child: Text(
                             'Verify',
-                            style: GoogleFonts.comfortaa(
-                                fontSize: 22,
+                            style: GoogleFonts.jost(
+                                fontSize: 24,
                                 color: Color(0xFF3F3F3F),
-                                fontWeight: FontWeight.w700),
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                         onPressed: () {
@@ -118,15 +117,13 @@ class OtpPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Resend code in 60 secs',
-                          style: GoogleFonts.jost(
-                              fontSize: 22, color: Colors.white),
-                        ),
-                      ],
+                    Text(
+                      'Resend code in 60 secs',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.jost(
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),

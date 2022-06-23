@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../buttons/submit_button.dart';
+import '../homepage.dart';
 import 'signup.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'forget_password.dart';
@@ -39,17 +40,16 @@ class Login extends StatelessWidget {
               padding: EdgeInsets.all(10),
               reverse: true,
               child: Form(
-                // autovalidateMode: AutovalidateMode.onUserInteraction,
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/login.json', width: 200),
+                    Lottie.asset('assets/lottie/login.json', width: 180),
                     Text(
                       'Login Here!',
                       style: GoogleFonts.jost(
-                          fontSize: 40,
+                          fontSize: 35,
                           fontWeight: FontWeight.w500,
                           height: 0,
                           color: Colors.white),
@@ -83,7 +83,7 @@ class Login extends StatelessWidget {
                       child: Text(
                         'Forgot password?',
                         style: GoogleFonts.jost(
-                            fontSize: 24,
+                            fontSize: 22,
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
@@ -100,7 +100,15 @@ class Login extends StatelessWidget {
                     Submit_Button(
                       btntxt: 'SIGN IN',
                       fontSize: 24,
-                      ontouch: () => _submit(),
+                      ontouch: () {
+                        _submit();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 20.0,
@@ -124,7 +132,7 @@ class Login extends StatelessWidget {
                           child: Text(
                             'Register Here!',
                             style: GoogleFonts.jost(
-                                fontSize: 24,
+                                fontSize: 22,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),

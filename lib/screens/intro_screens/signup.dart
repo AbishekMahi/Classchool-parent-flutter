@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors, must_be_immutable
 
-
 import 'package:classchool/screens/intro_screens/login.dart';
 import 'package:classchool/screens/intro_screens/otp_page.dart';
 import 'package:flutter/material.dart';
@@ -45,11 +44,11 @@ class Signup extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/login.json', width: 200),
+                    Lottie.asset('assets/lottie/login.json', width: 180),
                     Text(
                       'Signup Here!',
                       style: GoogleFonts.jost(
-                          fontSize: 40,
+                          fontSize: 35,
                           fontWeight: FontWeight.w500,
                           height: 0,
                           color: Colors.white),
@@ -98,21 +97,6 @@ class Signup extends StatelessWidget {
                         return null;
                       },
                     ),
-                    TextArea(
-                      labelText: 'Email address',
-                      hintText: 'yourname@domain.com',
-                      prefixIcon: Icons.mail_outlined,
-                      obscureText: false,
-                      keyboardType: TextInputType.emailAddress,
-                      validator: (value) {
-                        if (value!.isEmpty ||
-                            !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(value)) {
-                          return 'Enter a valid Email!';
-                        }
-                        return null;
-                      },
-                    ),
                     Submit_Button(
                       btntxt: 'SUBMIT',
                       fontSize: 24,
@@ -148,7 +132,7 @@ class Signup extends StatelessWidget {
                           child: Text(
                             'Login Here!',
                             style: GoogleFonts.jost(
-                                fontSize: 24,
+                                fontSize: 22,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),

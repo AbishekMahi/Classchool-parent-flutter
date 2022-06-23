@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors,  camel_case_types, must_be_immutable
 
-
 import 'package:classchool/screens/intro_screens/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -47,9 +46,8 @@ class forgetPassword extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Text(
-                        'Forgot password? Don\'t worry, \njust a common human error here you can change new one.',
+                        'Forgot password? Don\'t worry, just a common human error here you can change new one.',
                         textAlign: TextAlign.center,
-                        // overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.jost(
                             fontSize: 24,
                             fontWeight: FontWeight.w400,
@@ -101,15 +99,13 @@ class forgetPassword extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Check your inbox to get your code.',
-                          style: GoogleFonts.jost(
-                              fontSize: 22, color: Colors.white),
-                        ),
-                      ],
+                    Text(
+                      'Check your inbox to get your code.',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.jost(
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
                     ),
                   ],
                 ),

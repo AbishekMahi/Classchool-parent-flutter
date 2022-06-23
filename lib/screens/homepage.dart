@@ -36,15 +36,18 @@ class _HomePageState extends State<HomePage> {
           actions: [
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.notifications_rounded, color: Color(0xFFF9D645),),
-              iconSize: 30,
-            ),
-            IconButton(onPressed: () {}, icon:const  Icon(
-                Icons.category,
-                
+              icon: const Icon(
+                Icons.notifications_rounded,
+                color: Color(0xFFF9D645),
               ),
               iconSize: 30,
-
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.category,
+              ),
+              iconSize: 30,
             )
           ],
         ),

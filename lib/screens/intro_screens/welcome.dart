@@ -37,15 +37,9 @@ class _WelcomeState extends State<Welcome> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-
                       children: [
-                        Lottie.asset('assets/lottie/student.json', width: 340),
-
-                        // Lottie.network(
-                        //     'https://assets5.lottiefiles.com/packages/lf20_yjrdpceb.json',
-                        //     width: 340),
+                        Lottie.asset('assets/lottie/student.json', width: 250),
                         SizedBox(
                           height: 10,
                         ),
@@ -53,18 +47,18 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Student Activities',
                           style: GoogleFonts.jost(
-                              fontSize: 42,
+                              fontSize: 35,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         Text(
                           textAlign: TextAlign.center,
                           'Monitor the complete activity of your child like attendance, marks and etc...',
                           style: GoogleFonts.jost(
-                              fontSize: 25,
+                              fontSize: 22,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),
@@ -82,27 +76,23 @@ class _WelcomeState extends State<Welcome> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Lottie.network(
-                        //     'https://assets6.lottiefiles.com/packages/lf20_5xqvi8pf.json',
-                        //     width: 340),
-                        Lottie.asset('assets/lottie/map.json', width: 340),
-
+                        Lottie.asset('assets/lottie/map.json', height: 250),
                         Text(
                           textAlign: TextAlign.center,
                           'School Bus Tracker',
                           style: GoogleFonts.jost(
-                              fontSize: 42,
+                              fontSize: 35,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         Text(
                           textAlign: TextAlign.center,
                           'Live tracking of school bus with alerts for child pickup and drop.',
                           style: GoogleFonts.jost(
-                              fontSize: 25,
+                              fontSize: 22,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),
@@ -118,27 +108,29 @@ class _WelcomeState extends State<Welcome> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/ptc.png'),
+                        Image.asset(
+                          'assets/images/ptc.png',
+                          height: 250,
+                        ),
                         Text(
                           textAlign: TextAlign.center,
                           'Connect With Teachers',
                           style: GoogleFonts.jost(
                               height: 1.2,
-                              fontSize: 42,
+                              fontSize: 35,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         Text(
                           textAlign: TextAlign.center,
                           'Chat or talk with your child\'s teachers and know more about your child.',
                           style: GoogleFonts.jost(
-                              fontSize: 25,
+                              fontSize: 22,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),
@@ -168,7 +160,7 @@ class _WelcomeState extends State<Welcome> {
               // Get started button
               Submit_Button(
                 btntxt: 'Get Started',
-                fontSize: 28,
+                fontSize: 24,
                 ontouch: () {
                   Navigator.push(
                     context,
