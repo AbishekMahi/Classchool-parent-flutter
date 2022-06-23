@@ -1,13 +1,15 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, avoid_print, sort_child_properties_last, depend_on_referenced_packages, use_build_context_synchronously, camel_case_types, must_be_immutable
+// ignore_for_file: unnecessary_const, prefer_const_constructors,  camel_case_types, must_be_immutable
 
-import 'package:classchool/intro_screens/set_password.dart';
+
+import 'package:classchool/screens/intro_screens/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../buttons/submit_button.dart';
 import '../buttons/textfield.dart';
 
-class OtpPage extends StatelessWidget {
-  OtpPage({Key? key}) : super(key: key);
+class forgetPassword extends StatelessWidget {
+  forgetPassword({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   var isLoading = false;
   void _submit() {
@@ -40,12 +42,14 @@ class OtpPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/otp.json', width: 200),
+                    Lottie.asset('assets/lottie/forgot_password.json',
+                        width: 350),
                     Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Text(
-                        'Enter verification code sent to your mobile number',
+                        'Forgot password? Don\'t worry, \njust a common human error here you can change new one.',
                         textAlign: TextAlign.center,
+                        // overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.jost(
                             fontSize: 24,
                             fontWeight: FontWeight.w400,
@@ -57,15 +61,16 @@ class OtpPage extends StatelessWidget {
                       height: 10,
                     ),
                     TextArea(
-                      labelText: 'Enter the 6-digit code',
-                      hintText: 'Enter your OTP',
-                      prefixIcon: Icons.numbers,
-                      keyboardType: TextInputType.number,
+                      labelText: 'Phone number',
+                      hintText: '+91 00000 00000',
+                      prefixIcon: Icons.phone_outlined,
                       obscureText: false,
+                      keyboardType: TextInputType.phone,
                       validator: (value) {
                         if (value!.isEmpty ||
-                            !RegExp(r'^(?=.*?[0-9]).{6,}$').hasMatch(value)) {
-                          return 'Enter valid OTP!';
+                            !RegExp(r'^(?:[+0][1-9])?[0-9]{10,12}$')
+                                .hasMatch(value)) {
+                          return 'Invalid Phone number!';
                         }
                         return null;
                       },
@@ -73,39 +78,18 @@ class OtpPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xFF8EFF6B)),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100.0),
-                            ),
+                    Submit_Button(
+                      btntxt: 'SUBMIT',
+                      fontSize: 24,
+                      ontouch: () {
+                        _submit();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OtpPage(),
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            'Verify',
-                            style: GoogleFonts.comfortaa(
-                                fontSize: 22,
-                                color: Color(0xFF3F3F3F),
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                        onPressed: () {
-                          _submit();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SetPassword(),
-                            ),
-                          );
-                        },
-                      ),
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 20.0,
@@ -121,7 +105,7 @@ class OtpPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          'Resend code in 60 secs',
+                          'Check your inbox to get your code.',
                           style: GoogleFonts.jost(
                               fontSize: 22, color: Colors.white),
                         ),

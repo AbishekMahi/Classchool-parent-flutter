@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors,
 
-import 'package:classchool/buttons/textfield.dart';
+import 'package:classchool/screens/buttons/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';

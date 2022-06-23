@@ -1,5 +1,7 @@
+import 'package:classchool/screens/homepage.dart';
+import 'package:classchool/screens/intro_screens/welcome.dart';
 import 'package:flutter/material.dart';
-import 'intro_screens/welcome.dart';
+
 
 void main() {
   runApp(const Classchool());
@@ -13,7 +15,7 @@ class Classchool extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Classchool',
-      home: Welcome(),
+      home: HomePage(),
     );
   }
 }
