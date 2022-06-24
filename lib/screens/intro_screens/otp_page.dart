@@ -4,7 +4,7 @@ import 'package:classchool/screens/intro_screens/set_password.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../buttons/textfield.dart';
+import '../../utils/textfield.dart';
 
 class OtpPage extends StatelessWidget {
   OtpPage({Key? key}) : super(key: key);

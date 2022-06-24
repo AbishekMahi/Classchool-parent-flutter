@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import '../buttons/submit_button.dart';
-import '../buttons/textfield.dart';
+import '../../utils/submit_button.dart';
+import '../../utils/textfield.dart';
 import '../homepage.dart';
 
 // ignore: must_be_immutable

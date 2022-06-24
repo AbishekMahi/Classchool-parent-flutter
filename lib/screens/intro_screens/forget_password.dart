@@ -4,8 +4,8 @@ import 'package:classchool/screens/intro_screens/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../buttons/submit_button.dart';
-import '../buttons/textfield.dart';
+import '../../utils/submit_button.dart';
+import '../../utils/textfield.dart';
 
 class forgetPassword extends StatelessWidget {
   forgetPassword({Key? key}) : super(key: key);

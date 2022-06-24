@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../buttons/submit_button.dart';
+import '../../utils/submit_button.dart';
 import 'login.dart';
 
 class Welcome extends StatefulWidget {
