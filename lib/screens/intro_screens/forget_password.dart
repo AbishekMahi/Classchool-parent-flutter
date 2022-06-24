@@ -58,7 +58,7 @@ class forgetPassword extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    TextArea(
+                    CustomTextField(
                       labelText: 'Phone number',
                       hintText: '+91 00000 00000',
                       prefixIcon: Icons.phone_outlined,

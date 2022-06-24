@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
-class TextArea extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String labelText;
   final String hintText;
   final IconData prefixIcon;
@@ -10,7 +10,7 @@ class TextArea extends StatelessWidget {
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
-  const TextArea({
+  const CustomTextField({
     Key? key,
     required this.labelText,
     required this.hintText,
@@ -78,11 +78,11 @@ class TextArea extends StatelessWidget {
   }
 }
 
-class PwArea extends StatefulWidget {
+class PasswordField extends StatefulWidget {
   final String labelText;
   final String hintText;
   final IconData prefixIcon;
-  const PwArea(
+  const PasswordField(
       {Key? key,
       required this.labelText,
       required this.hintText,
@@ -91,10 +91,14 @@ class PwArea extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  State<PwArea> createState() => _PwAreaState(labelText, hintText, prefixIcon);
+  State<PasswordField> createState() => _PasswordFieldState(
+        labelText,
+        hintText,
+        prefixIcon,
+      );
 }
 
-class _PwAreaState extends State<PwArea> {
+class _PasswordFieldState extends State<PasswordField> {
   final String labelText;
   final String hintText;
   final IconData prefixIcon;
@@ -102,7 +106,7 @@ class _PwAreaState extends State<PwArea> {
 
   bool _isHidden = true;
 
-  _PwAreaState(this.labelText, this.hintText, this.prefixIcon);
+  _PasswordFieldState(this.labelText, this.hintText, this.prefixIcon);
 
   @override
   Widget build(BuildContext context) {

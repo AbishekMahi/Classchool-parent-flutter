@@ -158,8 +158,8 @@ class _WelcomeState extends State<Welcome> {
 
               // Get started button
               Submit_Button(
-                btntxt: 'Get Started',
-                fontSize: 24,
+                btntxt: 'GET STARTED',
+                fontSize: 22,
                 ontouch: () {
                   Navigator.push(
                     context,

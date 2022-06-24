@@ -1,14 +1,14 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors,
 
-import 'package:classchool/screens/buttons/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../buttons/submit_button.dart';
-import '../homepage.dart';
 import 'signup.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'forget_password.dart';
+import '../homepage.dart' show HomePage;
+import '../../utils/submit_button.dart' show Submit_Button;
+import '../../utils/textfield.dart' show CustomTextField, PasswordField;
 
 // ignore: must_be_immutable
 class Login extends StatelessWidget {
@@ -58,7 +58,7 @@ class Login extends StatelessWidget {
                       height: 10,
                     ),
                     // Email or phone number
-                    TextArea(
+                    CustomTextField(
                       labelText: 'Email or phone number',
                       hintText: 'Email or phone number',
                       prefixIcon: Icons.account_circle_outlined,
@@ -74,7 +74,7 @@ class Login extends StatelessWidget {
                       },
                     ),
                     // password
-                    PwArea(
+                    PasswordField(
                       labelText: 'Password',
                       hintText: 'Enter password',
                       prefixIcon: EvaIcons.lockOutline,

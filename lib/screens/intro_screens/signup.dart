@@ -56,7 +56,7 @@ class Signup extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    TextArea(
+                    CustomTextField(
                       labelText: 'School name',
                       hintText: 'Enter school name',
                       prefixIcon: Icons.school_outlined,
@@ -69,7 +69,7 @@ class Signup extends StatelessWidget {
                         return null;
                       },
                     ),
-                    TextArea(
+                    CustomTextField(
                       labelText: 'Admission number',
                       hintText: 'Student admission number',
                       prefixIcon: Icons.numbers_outlined,
@@ -82,7 +82,7 @@ class Signup extends StatelessWidget {
                         return null;
                       },
                     ),
-                    TextArea(
+                    CustomTextField(
                       labelText: 'Phone number',
                       hintText: '+91 00000 00000',
                       prefixIcon: Icons.phone_outlined,

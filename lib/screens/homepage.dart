@@ -30,9 +30,7 @@ class _HomePageState extends State<HomePage> {
           title: Text(
             "GOOD MORNING",
             style: GoogleFonts.jost(
-                color: Colors.white,
-                fontSize: 30,
-                fontWeight: FontWeight.normal),
+                color: Colors.white, fontSize: 28, fontWeight: FontWeight.w500),
           ),
           actions: [
             IconButton(
@@ -47,6 +45,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {},
               icon: const Icon(
                 Icons.category,
+                // jana you can use this icon da (grid_view_rounded)
               ),
               iconSize: 30,
             )
@@ -64,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.home,
+                    Icons.home_rounded,
                     color: Colors.white,
                     size: 30,
                   ),

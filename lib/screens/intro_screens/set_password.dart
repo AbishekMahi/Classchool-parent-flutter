@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import '../buttons/submit_button.dart';
 import '../buttons/textfield.dart';
+import '../homepage.dart';
 
 // ignore: must_be_immutable
 class SetPassword extends StatelessWidget {
@@ -54,7 +55,7 @@ class SetPassword extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    TextArea(
+                    CustomTextField(
                       labelText: 'Email address',
                       hintText: 'yourname@domain.com',
                       prefixIcon: Icons.mail_outlined,
@@ -69,12 +70,12 @@ class SetPassword extends StatelessWidget {
                         return null;
                       },
                     ),
-                    PwArea(
+                    PasswordField(
                       labelText: 'New Password',
                       hintText: 'Enter new password',
                       prefixIcon: EvaIcons.lockOutline,
                     ),
-                    PwArea(
+                    PasswordField(
                       labelText: 'Confirm Password',
                       hintText: 'Re-Enter password',
                       prefixIcon: EvaIcons.lockOutline,
@@ -87,6 +88,12 @@ class SetPassword extends StatelessWidget {
                       fontSize: 22,
                       ontouch: () {
                         _submit();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(
