@@ -83,7 +83,7 @@ class Login extends StatelessWidget {
                       child: Text(
                         'Forgot password?',
                         style: GoogleFonts.jost(
-                            fontSize: 22,
+                            fontSize: 20,
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
                       ),
@@ -99,10 +99,10 @@ class Login extends StatelessWidget {
                     // Sign button
                     Submit_Button(
                       btntxt: 'SIGN IN',
-                      fontSize: 24,
+                      fontSize: 22,
                       ontouch: () {
                         _submit();
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => HomePage(),
@@ -126,13 +126,13 @@ class Login extends StatelessWidget {
                         Text(
                           'New User?',
                           style: GoogleFonts.jost(
-                              fontSize: 22, color: Colors.white),
+                              fontSize: 20, color: Colors.white),
                         ),
                         TextButton(
                           child: Text(
                             'Register Here!',
                             style: GoogleFonts.jost(
-                                fontSize: 22,
+                                fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),

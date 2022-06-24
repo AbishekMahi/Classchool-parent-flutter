@@ -47,15 +47,15 @@ class OtpPage extends StatelessWidget {
                         'Enter verification code sent to your mobile number',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.jost(
-                            fontSize: 24,
+                            fontSize: 22,
                             fontWeight: FontWeight.w400,
                             height: 0,
                             color: Colors.white),
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
                     TextArea(
                       labelText: 'Enter the 6-digit code',
                       hintText: 'Enter your OTP',
@@ -91,7 +91,7 @@ class OtpPage extends StatelessWidget {
                           child: Text(
                             'Verify',
                             style: GoogleFonts.jost(
-                                fontSize: 24,
+                                fontSize: 22,
                                 color: Color(0xFF3F3F3F),
                                 fontWeight: FontWeight.w500),
                           ),
@@ -121,7 +121,7 @@ class OtpPage extends StatelessWidget {
                       'Resend code in 60 secs',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.jost(
-                        fontSize: 22,
+                        fontSize: 20,
                         color: Colors.white,
                       ),
                     ),

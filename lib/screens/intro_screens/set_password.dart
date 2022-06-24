@@ -84,7 +84,7 @@ class SetPassword extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'LET\'S GO',
-                      fontSize: 24,
+                      fontSize: 22,
                       ontouch: () {
                         _submit();
                       },

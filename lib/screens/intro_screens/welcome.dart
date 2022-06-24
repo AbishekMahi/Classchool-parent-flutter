@@ -9,7 +9,6 @@ import 'login.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
-
   @override
   State<Welcome> createState() => _WelcomeState();
 }
@@ -58,7 +57,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Monitor the complete activity of your child like attendance, marks and etc...',
                           style: GoogleFonts.jost(
-                              fontSize: 22,
+                              fontSize: 20,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),
@@ -92,7 +91,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Live tracking of school bus with alerts for child pickup and drop.',
                           style: GoogleFonts.jost(
-                              fontSize: 22,
+                              fontSize: 20,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),
@@ -130,7 +129,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Chat or talk with your child\'s teachers and know more about your child.',
                           style: GoogleFonts.jost(
-                              fontSize: 22,
+                              fontSize: 20,
                               // letterSpacing: 1.5,
                               height: 1.5,
                               color: Colors.white),

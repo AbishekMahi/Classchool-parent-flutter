@@ -8,7 +8,6 @@ void main() {
 
 class Classchool extends StatelessWidget {
   const Classchool({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(

@@ -99,7 +99,7 @@ class Signup extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'SUBMIT',
-                      fontSize: 24,
+                      fontSize: 22,
                       ontouch: () {
                         _submit();
                         Navigator.push(
@@ -117,22 +117,22 @@ class Signup extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
                           'Have an account?',
                           style: GoogleFonts.jost(
-                              fontSize: 22, color: Colors.white),
+                              fontSize: 20, color: Colors.white),
                         ),
                         TextButton(
                           child: Text(
                             'Login Here!',
                             style: GoogleFonts.jost(
-                                fontSize: 22,
+                                fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),
