@@ -8,7 +8,7 @@ const Color appThemeBottom = Color(0XFF7455F7);
 
 const Color outlinedButtonColor = Color(0XFF9A76F9);
 
-const Color bottomNavigationBarBackgroundColor = Color(0xFFBC93FA);
+const Color bottomNavigationBarBackgroundColor = Color(0xFF9772F9);
 double? deviceHeight;
 double? deviceWidth;
 
