@@ -119,6 +119,20 @@ class _HomePageState extends State<HomePage> {
                       )
                     ],
                   ),
+                   AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle: "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school1.png",
+                   ),
+SizedBox(height: 10,),
+                    AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
+                        "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school1.png",
+                  ),
                 ],
               ),
             ),
@@ -212,4 +226,42 @@ Widget childrenProfile({required String name, required String imageUrl}) {
       ],
     ),
   );
+}
+
+class AnnouncementWidget extends StatefulWidget {
+  String imageUrl;
+  String title;
+  String subTitle;
+  String time;
+   AnnouncementWidget({ required this.imageUrl, required this.title,required this.subTitle, required this.time,  Key? key}) : super(key: key);
+
+  @override
+  State<AnnouncementWidget> createState() => _AnnouncementWidgetState();
+  
+}
+
+class _AnnouncementWidgetState extends State<AnnouncementWidget> {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+     
+      decoration: BoxDecoration(
+        color: const Color(0xFFF6F1FF),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+          leading: ClipOval(
+            child: Image.asset(widget.imageUrl),
+          ),
+          
+          title:  Text(widget.title),
+          subtitle:  Text(
+              widget.subTitle),
+          trailing: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children:  [Text(widget.time)])),
+    );
+  }
 }
