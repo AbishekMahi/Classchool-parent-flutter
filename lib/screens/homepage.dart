@@ -1,6 +1,7 @@
 import 'package:classchool/utils/constants.dart';
 import 'package:classchool/utils/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -41,6 +44,7 @@ class _HomePageState extends State<HomePage> {
               iconSize: 30,
             ),
             IconButton(
+              padding: const EdgeInsets.only(right: 10),
               onPressed: () {},
               icon: const Icon(
                 Icons.grid_view_rounded,
@@ -131,14 +135,16 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(10),
             child: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
+              currentIndex: _currentIndex,
               backgroundColor: bottomNavigationBarBackgroundColor,
               elevation: 0,
+              onTap: (index) {
+                setState(() => _currentIndex = index);
+              },
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home_rounded,
-                    color: Colors.white,
-                    size: 30,
                   ),
                   label: 'Home',
                   backgroundColor: Colors.transparent,
@@ -146,8 +152,6 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.location_on,
-                    color: Colors.white,
-                    size: 30,
                   ),
                   label: 'Track Bus',
                   backgroundColor: Colors.transparent,
@@ -155,15 +159,18 @@ class _HomePageState extends State<HomePage> {
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.account_circle,
-                    color: Colors.white,
-                    size: 30,
                   ),
                   label: 'Profile',
                   backgroundColor: Colors.transparent,
                 ),
               ],
               selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white,
+              selectedLabelStyle:
+                  const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              selectedIconTheme:
+                  const IconThemeData(size: 30, color: Colors.white),
+              unselectedItemColor: const Color(0xFFFFFFFF).withOpacity(.80),
+              unselectedIconTheme: const IconThemeData(size: 28),
             ),
           ),
         ),
