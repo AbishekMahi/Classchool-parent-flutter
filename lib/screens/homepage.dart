@@ -123,19 +123,33 @@ class _HomePageState extends State<HomePage> {
                       )
                     ],
                   ),
-                   AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle: "Hello parents, monday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school1.png",
-                   ),
-SizedBox(height: 10,),
-                    AnnouncementWidget(
+                  AnnouncementWidget(
                     title: "Parents Meeting",
                     subTitle:
                         "Hello parents, monday morning 10:30 am you have parents meeting.",
                     time: "9:00 PM",
                     imageUrl: "assets/images/school1.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
+                        "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school2.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
+                        "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school2.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
+                        "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school2.png",
                   ),
                 ],
               ),
@@ -235,40 +249,69 @@ Widget childrenProfile({required String name, required String imageUrl}) {
   );
 }
 
+// ignore: must_be_immutable
 class AnnouncementWidget extends StatefulWidget {
   String imageUrl;
   String title;
   String subTitle;
   String time;
-   AnnouncementWidget({ required this.imageUrl, required this.title,required this.subTitle, required this.time,  Key? key}) : super(key: key);
+  AnnouncementWidget(
+      {required this.imageUrl,
+      required this.title,
+      required this.subTitle,
+      required this.time,
+      Key? key})
+      : super(key: key);
 
   @override
   State<AnnouncementWidget> createState() => _AnnouncementWidgetState();
-  
 }
 
 class _AnnouncementWidgetState extends State<AnnouncementWidget> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(
-     
+      margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFF6F1FF),
-        borderRadius: BorderRadius.circular(12),
+        gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
-          leading: ClipOval(
-            child: Image.asset(widget.imageUrl),
+        contentPadding: const EdgeInsets.all(8),
+        leading: ClipOval(
+          child: Image.asset(
+            widget.imageUrl,
           ),
-          
-          title:  Text(widget.title),
-          subtitle:  Text(
-              widget.subTitle),
-          trailing: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children:  [Text(widget.time)])),
+        ),
+        title: Text(
+          widget.title,
+          style: GoogleFonts.jost(
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text(
+          widget.subTitle,
+          style: GoogleFonts.jost(
+              color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.start,
+        ),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              widget.time,
+              style: GoogleFonts.jost(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
