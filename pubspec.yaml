@@ -80,11 +80,14 @@ flutter_native_splash:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Jost
-      fonts:  
-        - asset: fonts/Jost-VariableFont_wght.ttf
-        - asset: fonts/Jost-Italic-VariableFont_wght.ttf
+    - family: Jost     
+      fonts:
         - asset: fonts/Jost-Regular.ttf
+
+  # fonts:
+  #   - family: Jost
+  #     fonts:  
+  #       - asset: fonts/Jost-Regular.ttf
           # style: italic
   #
   # For details regarding fonts from package dependencies,

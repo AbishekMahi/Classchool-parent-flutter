@@ -14,7 +14,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
+  String greetingMessage() {
+    var timeNow = DateTime.now().hour;
+    if (timeNow <= 12) {
+      return 'Good Morning';
+    } else if ((timeNow > 12) && (timeNow <= 16)) {
+      return 'Good Afternoon';
+    } else if ((timeNow > 16) && (timeNow < 20)) {
+      return 'Good Evening';
+    } else {
+      return 'Good Night';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text(
-            "GOOD MORNING",
+            greetingMessage(),
             style: GoogleFonts.jost(
                 color: Colors.white, fontSize: 28, fontWeight: FontWeight.w500),
           ),
@@ -101,11 +112,27 @@ class _HomePageState extends State<HomePage> {
                         childrenProfile(
                             imageUrl: 'assets/images/girl.png',
                             name: 'Anitha',
-                            ontouch: () {}),
+                            ontouch: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StudentProfilePage(),
+                                ),
+                              );
+                            }),
                         childrenProfile(
                             imageUrl: 'assets/images/boy.png',
                             name: 'Arun',
-                            ontouch: () {}),
+                            ontouch: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StudentProfilePage(),
+                                ),
+                              );
+                            }),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -118,10 +145,13 @@ class _HomePageState extends State<HomePage> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: ClipOval(
-                              child: Image.asset(
-                                "assets/images/add_icon.png",
-                                width: 45,
-                                fit: BoxFit.cover,
+                              child: Hero(
+                                tag: 'addIcon',
+                                child: Image.asset(
+                                  "assets/images/add_icon.png",
+                                  width: 45,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
@@ -211,52 +241,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ]),
         ),
-        bottomNavigationBar: Container(
-          margin: const EdgeInsets.all(15),
-          height: 80,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: _currentIndex,
-              backgroundColor: bottomNavigationBarBackgroundColor,
-              elevation: 0,
-              onTap: (index) {
-                setState(() => _currentIndex = index);
-              },
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home_rounded,
-                  ),
-                  label: 'Home',
-                  backgroundColor: Colors.transparent,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.location_on,
-                  ),
-                  label: 'Track Bus',
-                  backgroundColor: Colors.transparent,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.account_circle,
-                  ),
-                  label: 'Profile',
-                  backgroundColor: Colors.transparent,
-                ),
-              ],
-              selectedItemColor: Colors.white,
-              selectedLabelStyle:
-                  const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              selectedIconTheme:
-                  const IconThemeData(size: 30, color: Colors.white),
-              unselectedItemColor: const Color(0xFFFFFFFF).withOpacity(.80),
-              unselectedIconTheme: const IconThemeData(size: 28),
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -340,13 +324,6 @@ class _AnnouncementWidgetState extends State<AnnouncementWidget> {
             end: Alignment.bottomCenter,
             colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
         borderRadius: BorderRadius.circular(10),
-        // boxShadow: const [
-        //   BoxShadow(
-        //     color: Color(0x29000000),
-        //     offset: Offset(0, 3),
-        //     blurRadius: 1,
-        //   ),
-        // ],
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),

@@ -44,7 +44,10 @@ class addNewStudent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/add.json', width: 180),
+                    Hero(
+                        tag: 'addIcon',
+                        child:
+                            Lottie.asset('assets/lottie/add.json', width: 180)),
                     Text(
                       'Add new student profile',
                       style: GoogleFonts.jost(

@@ -1,12 +1,12 @@
 // ignore_for_file: unnecessary_const, prefer_const_constructors,
 
+import 'package:classchool/screens/main/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'signup.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'forget_password.dart';
-import '../homepage.dart' show HomePage;
 import '../../utils/submit_button.dart' show Submit_Button;
 import '../../utils/textfield.dart' show CustomTextField, PasswordField;
 
@@ -105,7 +105,7 @@ class Login extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => MainPage(),
                           ),
                         );
                       },

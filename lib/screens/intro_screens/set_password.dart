@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import '../../utils/submit_button.dart';
 import '../../utils/textfield.dart';
-import '../homepage.dart';
+import '../main/main_page.dart';
 
 // ignore: must_be_immutable
 class SetPassword extends StatelessWidget {
@@ -91,7 +91,7 @@ class SetPassword extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => MainPage(),
                           ),
                         );
                       },
