@@ -1,14 +1,15 @@
-// ignore_for_file: unnecessary_const, prefer_const_constructors, must_be_immutable
+// ignore_for_file: camel_case_types
 
-import 'package:classchool/screens/intro_screens/login.dart';
-import 'package:classchool/screens/intro_screens/otp_page.dart';
+import 'package:classchool/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../utils/submit_button.dart';
 import '../../utils/textfield.dart';
+import 'otp_page.dart';
 
-class Signup extends StatelessWidget {
+// ignore: must_be_immutable
+class addNewStudent extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   var isLoading = false;
   void _submit() {
@@ -19,23 +20,23 @@ class Signup extends StatelessWidget {
     _formKey.currentState!.save();
   }
 
-  Signup({Key? key}) : super(key: key);
+  addNewStudent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: const [Color(0XFFBD94FA), Color(0XFF7455F7)],
+              colors: [Color(0XFFBD94FA), Color(0XFF7455F7)],
             ),
           ),
           child: Center(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               reverse: true,
               child: Form(
                 key: _formKey,
@@ -43,16 +44,16 @@ class Signup extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Lottie.asset('assets/lottie/login.json', width: 180),
+                    Lottie.asset('assets/lottie/add.json', width: 180),
                     Text(
-                      'Signup Here!',
+                      'Add new student profile',
                       style: GoogleFonts.jost(
-                          fontSize: 35,
+                          fontSize: 30,
                           fontWeight: FontWeight.w500,
                           height: 0,
                           color: Colors.white),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     CustomTextField(
@@ -96,53 +97,21 @@ class Signup extends StatelessWidget {
                         return null;
                       },
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Submit_Button(
-                      btntxt: 'SUBMIT',
+                      btntxt: 'ADD',
                       fontSize: 22,
                       ontouch: () {
                         _submit();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OtpPage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                      width: 150,
-                      child: Divider(
-                        color: Colors.white,
-                      ),
-                    ),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Have an account?',
-                          style: GoogleFonts.jost(
-                              fontSize: 20, color: Colors.white),
-                        ),
-                        TextButton(
-                          child: Text(
-                            'Login Here!',
-                            style: GoogleFonts.jost(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Login()),
-                            );
-                          },
-                        ),
-                      ],
                     ),
                   ],
                 ),

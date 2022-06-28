@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
       child: TextFormField(
+        textInputAction: TextInputAction.next,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: GoogleFonts.jost(fontSize: 20, color: Colors.white),
         keyboardType: keyboardType,
@@ -113,6 +114,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return Padding(
       padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
       child: TextFormField(
+          textInputAction: TextInputAction.next,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: passwordController,
           style: GoogleFonts.jost(fontSize: 20, color: Colors.white),

@@ -1,8 +1,10 @@
+import 'package:classchool/screens/intro_screens/add_new_student.dart';
+import 'package:classchool/screens/studentprofile.dart';
 import 'package:classchool/utils/constants.dart';
 import 'package:classchool/utils/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,22 +43,23 @@ class _HomePageState extends State<HomePage> {
                 Icons.notifications_rounded,
                 color: Color(0xFFF9D645),
               ),
-              iconSize: 30,
+              iconSize: 32,
             ),
             IconButton(
               padding: const EdgeInsets.only(right: 10),
               onPressed: () {},
               icon: const Icon(
-                Icons.grid_view_rounded,
+                EvaIcons.menu2,
               ),
-              iconSize: 30,
+              iconSize: 32,
             )
           ],
         ),
         body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
           child: Column(children: [
             Container(
-              margin: const EdgeInsets.all(15),
+              margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
               padding: const EdgeInsets.all(10),
               // height: SizeConfig.screenHeight! * 0.22,
               decoration: BoxDecoration(
@@ -85,13 +88,44 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         childrenProfile(
                             imageUrl: 'assets/images/boy.png',
-                            name: 'Ajith Kumar'),
+                            name: 'Ajith Kumar',
+                            ontouch: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StudentProfilePage(),
+                                ),
+                              );
+                            }),
                         childrenProfile(
-                            imageUrl: 'assets/images/girl.png', name: 'Anitha'),
+                            imageUrl: 'assets/images/girl.png',
+                            name: 'Anitha',
+                            ontouch: () {}),
                         childrenProfile(
-                            imageUrl: 'assets/images/boy.png', name: 'Arun'),
-                        childrenProfile(
-                            imageUrl: 'assets/images/girl.png', name: 'Anitha'),
+                            imageUrl: 'assets/images/boy.png',
+                            name: 'Arun',
+                            ontouch: () {}),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => addNewStudent(),
+                              ),
+                            );
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: ClipOval(
+                              child: Image.asset(
+                                "assets/images/add_icon.png",
+                                width: 45,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -104,7 +138,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 15),
               padding: const EdgeInsets.all(10),
-              height: SizeConfig.screenHeight! * 0.6,
+              // height: SizeConfig.screenHeight! * 0.555,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(15),
@@ -126,7 +160,28 @@ class _HomePageState extends State<HomePage> {
                   AnnouncementWidget(
                     title: "Parents Meeting",
                     subTitle:
+                        "Hello parents, friday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school1.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Tomorrow Holiday",
+                    subTitle:
+                        "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school2.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
                         "Hello parents, monday morning 10:30 am you have parents meeting.",
+                    time: "9:00 PM",
+                    imageUrl: "assets/images/school2.png",
+                  ),
+                  AnnouncementWidget(
+                    title: "Parents Meeting",
+                    subTitle:
+                        "Hello parents, friday morning 10:30 am you have parents meeting.",
                     time: "9:00 PM",
                     imageUrl: "assets/images/school1.png",
                   ),
@@ -142,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                     subTitle:
                         "Hello parents, monday morning 10:30 am you have parents meeting.",
                     time: "9:00 PM",
-                    imageUrl: "assets/images/school2.png",
+                    imageUrl: "assets/images/school1.png",
                   ),
                   AnnouncementWidget(
                     title: "Parents Meeting",
@@ -207,44 +262,51 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-Widget childrenProfile({required String name, required String imageUrl}) {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 5),
-    // height: SizeConfig.screenHeight! * 0.16,
-    width: 100,
-    decoration: BoxDecoration(
-      gradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: ClipOval(
-            child: Image.asset(
-              imageUrl,
-              width: 75,
-              height: 75,
-              fit: BoxFit.cover,
+Widget childrenProfile({
+  required String name,
+  required String imageUrl,
+  required void Function() ontouch,
+}) {
+  return GestureDetector(
+    onTap: ontouch,
+    child: Container(
+      margin: const EdgeInsets.symmetric(horizontal: 5),
+      // height: SizeConfig.screenHeight! * 0.16,
+      width: 100,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: ClipOval(
+              child: Image.asset(
+                imageUrl,
+                width: 75,
+                height: 75,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(name,
-              overflow: TextOverflow.clip,
-              style: GoogleFonts.jost(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500),
-              maxLines: 1,
-              textAlign: TextAlign.center),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(name,
+                overflow: TextOverflow.clip,
+                style: GoogleFonts.jost(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500),
+                maxLines: 1,
+                textAlign: TextAlign.center),
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -271,16 +333,23 @@ class _AnnouncementWidgetState extends State<AnnouncementWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
         borderRadius: BorderRadius.circular(10),
+        // boxShadow: const [
+        //   BoxShadow(
+        //     color: Color(0x29000000),
+        //     offset: Offset(0, 3),
+        //     blurRadius: 1,
+        //   ),
+        // ],
       ),
       child: ListTile(
-        contentPadding: const EdgeInsets.all(8),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
         leading: ClipOval(
           child: Image.asset(
             widget.imageUrl,
@@ -294,7 +363,10 @@ class _AnnouncementWidgetState extends State<AnnouncementWidget> {
         subtitle: Text(
           widget.subTitle,
           style: GoogleFonts.jost(
-              color: Colors.black, fontSize: 14, fontWeight: FontWeight.w400),
+              color: Colors.black87,
+              fontSize: 14,
+              height: 1.2,
+              fontWeight: FontWeight.w400),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.start,
@@ -305,9 +377,9 @@ class _AnnouncementWidgetState extends State<AnnouncementWidget> {
             Text(
               widget.time,
               style: GoogleFonts.jost(
-                  color: Colors.black,
+                  color: Colors.black54,
                   fontSize: 12,
-                  fontWeight: FontWeight.w400),
+                  fontWeight: FontWeight.w500),
             )
           ],
         ),

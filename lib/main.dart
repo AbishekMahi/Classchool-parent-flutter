@@ -1,4 +1,3 @@
-import 'package:classchool/screens/homepage.dart';
 import 'package:classchool/screens/intro_screens/welcome.dart';
 import 'package:flutter/material.dart';
 
