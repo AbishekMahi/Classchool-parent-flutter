@@ -1,6 +1,5 @@
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StudentProfilePage extends StatefulWidget {
@@ -124,7 +123,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 10),
+                                    vertical: 10, horizontal: 0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -172,7 +171,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                                       height: 8,
                                     ),
                                     SizedBox(
-                                      width: 220,
+                                      width: 200,
                                       child: Text(
                                         'Adhiyaman Matriculation Higher Secondary School',
                                         style: GoogleFonts.jost(
@@ -352,10 +351,17 @@ Widget Features({
             imageUrl,
             width: 80,
           ),
-          Text(
-            title,
-            style: GoogleFonts.jost(
-                color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500),
+          Flexible(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.fade,
+              maxLines: 1,
+              style: GoogleFonts.jost(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),

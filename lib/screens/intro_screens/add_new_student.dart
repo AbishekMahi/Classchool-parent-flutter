@@ -1,12 +1,11 @@
 // ignore_for_file: camel_case_types
 
-import 'package:classchool/screens/homepage.dart';
+import 'package:classchool/screens/main/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../utils/submit_button.dart';
 import '../../utils/textfield.dart';
-import 'otp_page.dart';
 
 // ignore: must_be_immutable
 class addNewStudent extends StatelessWidget {
@@ -49,6 +48,7 @@ class addNewStudent extends StatelessWidget {
                         child:
                             Lottie.asset('assets/lottie/add.json', width: 180)),
                     Text(
+                      textAlign: TextAlign.center,
                       'Add new student profile',
                       style: GoogleFonts.jost(
                           fontSize: 30,
@@ -111,7 +111,7 @@ class addNewStudent extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => const MainPage(),
                           ),
                         );
                       },

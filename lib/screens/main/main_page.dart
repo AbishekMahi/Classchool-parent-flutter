@@ -69,7 +69,7 @@ class _MainPageState extends State<MainPage> {
               selectedItemColor: Colors.white,
               selectedLabelStyle: const TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                   fontFamily: 'Jost'),
               selectedIconTheme:
                   const IconThemeData(size: 35, color: Colors.white),
