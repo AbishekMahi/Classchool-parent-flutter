@@ -30,6 +30,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    Future<void> _refresh() async {
+      return Future.delayed(
+        const Duration(seconds: 1),
+      );
+    }
+
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -66,181 +72,203 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(children: [
-            Container(
-              margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
-              padding: const EdgeInsets.all(10),
-              // height: SizeConfig.screenHeight! * 0.22,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "CHILDREN PROFILES",
-                        style: GoogleFonts.jost(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        body: RefreshIndicator(
+          triggerMode: RefreshIndicatorTriggerMode.onEdge,
+          backgroundColor: const Color(0xFFEDE9FF),
+          strokeWidth: 2,
+          color: const Color(0XFF7455F7),
+          onRefresh: _refresh,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+                padding: const EdgeInsets.all(10),
+                // height: SizeConfig.screenHeight! * 0.22,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0x29000000),
+                      offset: Offset(0, 4),
+                      blurRadius: 3,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        childrenProfile(
-                            imageUrl: 'assets/images/boy.png',
-                            name: 'Ajith Kumar',
-                            ontouch: () {
+                        Text(
+                          "CHILDREN PROFILES",
+                          style: GoogleFonts.jost(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          childrenProfile(
+                              imageUrl: 'assets/images/boy.png',
+                              name: 'Ajith Kumar',
+                              ontouch: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const StudentProfilePage(),
+                                  ),
+                                );
+                              }),
+                          childrenProfile(
+                              imageUrl: 'assets/images/girl.png',
+                              name: 'Anitha',
+                              ontouch: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const StudentProfilePage(),
+                                  ),
+                                );
+                              }),
+                          childrenProfile(
+                              imageUrl: 'assets/images/boy.png',
+                              name: 'Arun',
+                              ontouch: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const StudentProfilePage(),
+                                  ),
+                                );
+                              }),
+                          GestureDetector(
+                            onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StudentProfilePage(),
+                                  builder: (context) => addNewStudent(),
                                 ),
                               );
-                            }),
-                        childrenProfile(
-                            imageUrl: 'assets/images/girl.png',
-                            name: 'Anitha',
-                            ontouch: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StudentProfilePage(),
-                                ),
-                              );
-                            }),
-                        childrenProfile(
-                            imageUrl: 'assets/images/boy.png',
-                            name: 'Arun',
-                            ontouch: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StudentProfilePage(),
-                                ),
-                              );
-                            }),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => addNewStudent(),
-                              ),
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: ClipOval(
-                              child: Hero(
-                                tag: 'addIcon',
-                                child: Image.asset(
-                                  "assets/images/add_icon.png",
-                                  width: 45,
-                                  fit: BoxFit.cover,
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: ClipOval(
+                                child: Hero(
+                                  tag: 'addIcon',
+                                  child: Image.asset(
+                                    "assets/images/add_icon.png",
+                                    width: 45,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.all(10),
+                // height: SizeConfig.screenHeight! * 0.555,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0x29000000),
+                      offset: Offset(0, 4),
+                      blurRadius: 3,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "ANNOUNCEMENTS",
+                          style: GoogleFonts.jost(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500),
+                        )
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, friday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school1.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Tomorrow Holiday",
+                      subTitle:
+                          "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school2.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, monday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school2.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, friday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school1.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, monday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school2.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, monday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school1.png",
+                    ),
+                    AnnouncementWidget(
+                      title: "Parents Meeting",
+                      subTitle:
+                          "Hello parents, monday morning 10:30 am you have parents meeting.",
+                      time: "9:00 PM",
+                      imageUrl: "assets/images/school2.png",
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              padding: const EdgeInsets.all(10),
-              // height: SizeConfig.screenHeight! * 0.555,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "ANNOUNCEMENTS",
-                        style: GoogleFonts.jost(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, friday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school1.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Tomorrow Holiday",
-                    subTitle:
-                        "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school2.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, monday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school2.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, friday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school1.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, monday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school2.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, monday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school1.png",
-                  ),
-                  AnnouncementWidget(
-                    title: "Parents Meeting",
-                    subTitle:
-                        "Hello parents, monday morning 10:30 am you have parents meeting.",
-                    time: "9:00 PM",
-                    imageUrl: "assets/images/school2.png",
-                  ),
-                ],
-              ),
-            ),
-          ]),
+            ]),
+          ),
         ),
       ),
     );
@@ -325,6 +353,13 @@ class _AnnouncementWidgetState extends State<AnnouncementWidget> {
             end: Alignment.bottomCenter,
             colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
         borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x29000000),
+            offset: Offset(0, 3),
+            blurRadius: 2,
+          ),
+        ],
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),

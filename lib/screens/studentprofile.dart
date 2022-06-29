@@ -1,3 +1,4 @@
+import 'package:classchool/screens/class_schedule.dart';
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -173,7 +174,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                                     SizedBox(
                                       width: 200,
                                       child: Text(
-                                        'Adhiyaman Matriculation Higher Secondary School',
+                                        'Adhiyaman Matric. Hr. Sec. School',
                                         style: GoogleFonts.jost(
                                             color: Colors.black87,
                                             fontSize: 18,
@@ -263,7 +264,14 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                       Features(
                         imageUrl: 'assets/images/schedule.png',
                         title: 'SCHEDULE',
-                        ontouch: () {},
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ClassSchedule(),
+                            ),
+                          );
+                        },
                         gradient: const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
