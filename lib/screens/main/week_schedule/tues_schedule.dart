@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'monday_schedule.dart';
+import 'mon_schedule.dart';
 
 class TuesdaySchedule extends StatefulWidget {
   const TuesdaySchedule({Key? key}) : super(key: key);
