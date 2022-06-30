@@ -105,7 +105,7 @@ class addNewStudent extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'ADD',
-                      fontSize: 22,
+                      fontSize: 20,
                       ontouch: () {
                         _submit();
                         Navigator.push(

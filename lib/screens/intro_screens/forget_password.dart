@@ -49,7 +49,7 @@ class forgetPassword extends StatelessWidget {
                         'Forgot password? Don\'t worry, just a common human error here you can change new one.',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.jost(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.w400,
                             height: 0,
                             color: Colors.white),
@@ -78,7 +78,7 @@ class forgetPassword extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'SUBMIT',
-                      fontSize: 22,
+                      fontSize: 20,
                       ontouch: () {
                         _submit();
                         Navigator.push(
@@ -103,7 +103,7 @@ class forgetPassword extends StatelessWidget {
                       'Check your inbox to get your code.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.jost(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: Colors.white,
                       ),
                     ),

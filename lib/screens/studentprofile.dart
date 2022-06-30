@@ -15,10 +15,11 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [appThemeTop, appThemeBottom])),
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [appThemeTop, appThemeBottom]),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -28,13 +29,13 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           title: Text(
             "Student Profile",
             style: GoogleFonts.jost(
-                color: Colors.white, fontSize: 28, fontWeight: FontWeight.w500),
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
           ),
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
                 Stack(
@@ -336,9 +337,11 @@ Widget Features({
   required Gradient gradient,
   required void Function() ontouch,
 }) {
-  return GestureDetector(
+  return InkWell(
+    hoverColor: Colors.white,
+    splashColor: Colors.white,
     onTap: ontouch,
-    child: Container(
+    child: Ink(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -357,7 +360,7 @@ Widget Features({
         children: [
           Image.asset(
             imageUrl,
-            width: 80,
+            width: 70,
           ),
           Flexible(
             child: Text(

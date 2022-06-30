@@ -47,7 +47,7 @@ class Signup extends StatelessWidget {
                     Text(
                       'Signup Here!',
                       style: GoogleFonts.jost(
-                          fontSize: 35,
+                          fontSize: 30,
                           fontWeight: FontWeight.w500,
                           height: 0,
                           color: Colors.white),
@@ -98,7 +98,7 @@ class Signup extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'SUBMIT',
-                      fontSize: 22,
+                      fontSize: 20,
                       ontouch: () {
                         _submit();
                         Navigator.push(
@@ -125,7 +125,7 @@ class Signup extends StatelessWidget {
                         Text(
                           'Have an account?',
                           style: GoogleFonts.jost(
-                              fontSize: 20, color: Colors.white),
+                              fontSize: 18, color: Colors.white),
                         ),
                         TextButton(
                           child: Text(

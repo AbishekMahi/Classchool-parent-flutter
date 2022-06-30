@@ -23,11 +23,11 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
+      padding: const EdgeInsets.all(10),
       child: TextFormField(
         textInputAction: TextInputAction.next,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        style: GoogleFonts.jost(fontSize: 20, color: Colors.white),
+        style: GoogleFonts.jost(fontSize: 18, color: Colors.white),
         keyboardType: keyboardType,
         obscureText: obscureText,
         decoration: InputDecoration(
@@ -112,12 +112,12 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, top: 10, bottom: 10, right: 15),
+      padding: const EdgeInsets.all(10),
       child: TextFormField(
           textInputAction: TextInputAction.next,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: passwordController,
-          style: GoogleFonts.jost(fontSize: 20, color: Colors.white),
+          style: GoogleFonts.jost(fontSize: 18, color: Colors.white),
           keyboardType: TextInputType.visiblePassword,
           obscureText: _isHidden,
           decoration: InputDecoration(

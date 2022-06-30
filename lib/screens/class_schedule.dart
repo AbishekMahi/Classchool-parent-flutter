@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import '../utils/constants.dart';
-import 'day_schedule/week_schedule/fri_schedule.dart';
-import 'day_schedule/week_schedule/mon_schedule.dart';
-import 'day_schedule/week_schedule/sat_schedule.dart';
-import 'day_schedule/week_schedule/thu_schedule.dart';
-import 'day_schedule/week_schedule/tues_schedule.dart';
-import 'day_schedule/week_schedule/wed_schedule.dart';
+import 'week_schedule/fri_schedule.dart';
+import 'week_schedule/mon_schedule.dart';
+import 'week_schedule/sat_schedule.dart';
+import 'week_schedule/thu_schedule.dart';
+import 'week_schedule/tues_schedule.dart';
+import 'week_schedule/wed_schedule.dart';
 
 class ClassSchedule extends StatefulWidget {
   const ClassSchedule({Key? key}) : super(key: key);
@@ -104,39 +104,44 @@ class _ClassScheduleState extends State<ClassSchedule> {
               ),
             ),
           ),
-          body: TabBarView(children: [
-            const MondaySchedule(),
-            const TuesdaySchedule(),
-            const WednesdaySchedule(),
-            const ThursdaySchedule(),
-            const FridaySchedule(),
-            const SaturdaySchedule(),
-            // const SundaySchedule(),
-            Container(
+          body: TabBarView(
+            children: [
+              const MondaySchedule(),
+              const TuesdaySchedule(),
+              const WednesdaySchedule(),
+              const ThursdaySchedule(),
+              const FridaySchedule(),
+              const SaturdaySchedule(),
+              // const SundaySchedule(),
+              Container(
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Happy Holiday',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.jost(
-                              color: Colors.black,
-                              fontSize: 28,
-                              fontWeight: FontWeight.w500),
-                        ),
-                        Lottie.network(
-                          'https://assets5.lottiefiles.com/private_files/lf30_vdqgavca.json',
-                        ),
-                      ],
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Happy Holiday',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.jost(
+                                color: Colors.black,
+                                fontSize: 28,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Lottie.asset(
+                            'assets/lottie/holiday.json',
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                )),
-          ]),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

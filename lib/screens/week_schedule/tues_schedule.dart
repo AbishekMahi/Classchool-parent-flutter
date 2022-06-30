@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'mon_schedule.dart';
 
-class ThursdaySchedule extends StatefulWidget {
-  const ThursdaySchedule({Key? key}) : super(key: key);
+class TuesdaySchedule extends StatefulWidget {
+  const TuesdaySchedule({Key? key}) : super(key: key);
 
   @override
-  State<ThursdaySchedule> createState() => _ThursdayScheduleState();
+  State<TuesdaySchedule> createState() => _TuesdayScheduleState();
 }
 
-class _ThursdayScheduleState extends State<ThursdaySchedule> {
+class _TuesdayScheduleState extends State<TuesdaySchedule> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,29 +44,7 @@ class _ThursdayScheduleState extends State<ThursdaySchedule> {
             starttime: '8:00 AM',
             endtime: '8:50 AM',
           ),
-          Container(
-            margin: const EdgeInsets.only(bottom: 15),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 156, 255, 162),
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0x29000000),
-                  offset: Offset(0, 4),
-                  blurRadius: 3,
-                ),
-              ],
-            ),
-            child: Text(
-              'Lunch Break (12:20 pm - 01:20 pm)',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.jost(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
+          LunchBreak(starttime: '12:20 pm', endtime: '01:20 pm'),
           const ClassTable(
             num: '5',
             classname: "Chemistry",

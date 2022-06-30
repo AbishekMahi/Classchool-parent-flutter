@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
           title: Text(
             "Profile",
             style: GoogleFonts.jost(
-                color: Colors.white, fontSize: 28, fontWeight: FontWeight.w500),
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
           ),
         ),
         body: SingleChildScrollView(
@@ -274,10 +274,10 @@ Widget ExtraFeatures({
   required String imageUrl,
   required void Function() ontouch,
 }) {
-  return GestureDetector(
+  return InkWell(
     onTap: ontouch,
-    child: Container(
-      padding: const EdgeInsets.all(15),
+    child: Ink(
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,

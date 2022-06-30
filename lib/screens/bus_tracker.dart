@@ -1,5 +1,4 @@
 import 'package:classchool/utils/constants.dart';
-import 'package:classchool/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,7 +27,7 @@ class _BusTrackerState extends State<BusTracker> {
           title: Text(
             "Bus Tracker",
             style: GoogleFonts.jost(
-                color: Colors.white, fontSize: 28, fontWeight: FontWeight.w500),
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
           ),
         ),
       ),

@@ -46,7 +46,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Student Activities',
                           style: GoogleFonts.jost(
-                              fontSize: 35,
+                              fontSize: 30,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
@@ -57,10 +57,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Monitor the complete activity of your child like attendance, marks and etc...',
                           style: GoogleFonts.jost(
-                              fontSize: 20,
-                              // letterSpacing: 1.5,
-                              height: 1.5,
-                              color: Colors.white),
+                              fontSize: 18, height: 1.5, color: Colors.white),
                         ),
                         SizedBox(
                           height: 50,
@@ -80,7 +77,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'School Bus Tracker',
                           style: GoogleFonts.jost(
-                              fontSize: 35,
+                              fontSize: 30,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
@@ -91,10 +88,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Live tracking of school bus with alerts for child pickup and drop.',
                           style: GoogleFonts.jost(
-                              fontSize: 20,
-                              // letterSpacing: 1.5,
-                              height: 1.5,
-                              color: Colors.white),
+                              fontSize: 18, height: 1.5, color: Colors.white),
                         ),
                         SizedBox(
                           height: 50,
@@ -118,7 +112,7 @@ class _WelcomeState extends State<Welcome> {
                           'Connect With Teachers',
                           style: GoogleFonts.jost(
                               height: 1.2,
-                              fontSize: 35,
+                              fontSize: 30,
                               fontWeight: FontWeight.w500,
                               color: Colors.white),
                         ),
@@ -129,10 +123,7 @@ class _WelcomeState extends State<Welcome> {
                           textAlign: TextAlign.center,
                           'Chat or talk with your child\'s teachers and know more about your child.',
                           style: GoogleFonts.jost(
-                              fontSize: 20,
-                              // letterSpacing: 1.5,
-                              height: 1.5,
-                              color: Colors.white),
+                              fontSize: 18, height: 1.5, color: Colors.white),
                         ),
                         SizedBox(
                           height: 50,
@@ -149,8 +140,8 @@ class _WelcomeState extends State<Welcome> {
                   count: 3,
                   effect: WormEffect(
                       spacing: 15.0,
-                      dotWidth: 10.0,
-                      dotHeight: 10.0,
+                      dotWidth: 8.0,
+                      dotHeight: 8.0,
                       dotColor: Colors.white54,
                       activeDotColor: Colors.white),
                 ),
@@ -159,7 +150,7 @@ class _WelcomeState extends State<Welcome> {
               // Get started button
               Submit_Button(
                 btntxt: 'GET STARTED',
-                fontSize: 22,
+                fontSize: 20,
                 ontouch: () {
                   Navigator.push(
                     context,

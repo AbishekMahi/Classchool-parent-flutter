@@ -18,7 +18,7 @@ class Submit_Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -34,8 +34,7 @@ class Submit_Button extends StatelessWidget {
             ),
             onPressed: ontouch,
             child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 50, right: 50, top: 16, bottom: 16),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               child: Text(
                 btntxt,
                 style: GoogleFonts.jost(

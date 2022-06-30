@@ -85,7 +85,7 @@ class SetPassword extends StatelessWidget {
                     ),
                     Submit_Button(
                       btntxt: 'LET\'S GO',
-                      fontSize: 22,
+                      fontSize: 20,
                       ontouch: () {
                         _submit();
                         Navigator.pushReplacement(

@@ -44,29 +44,7 @@ class _MondayScheduleState extends State<MondaySchedule> {
             starttime: '8:00 AM',
             endtime: '8:50 AM',
           ),
-          Container(
-            margin: const EdgeInsets.only(bottom: 15),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 156, 255, 162),
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0x29000000),
-                  offset: Offset(0, 4),
-                  blurRadius: 3,
-                ),
-              ],
-            ),
-            child: Text(
-              'Lunch Break (12:20 pm - 01:20 pm)',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.jost(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
+          LunchBreak(starttime: '12:20 pm', endtime: '01:20 pm'),
           const ClassTable(
             num: '5',
             classname: "Chemistry",
@@ -120,8 +98,8 @@ class ClassTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 15),
-      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -142,8 +120,8 @@ class ClassTable extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: 32,
-                width: 32,
+                height: 25,
+                width: 25,
                 decoration: BoxDecoration(
                   color: appThemeBottom,
                   borderRadius: BorderRadius.circular(50),
@@ -160,13 +138,12 @@ class ClassTable extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.jost(
                       color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -226,4 +203,31 @@ class ClassTable extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget LunchBreak({
+  required String starttime,
+  required String endtime,
+}) {
+  return Container(
+    margin: const EdgeInsets.only(bottom: 10),
+    padding: const EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      color: const Color.fromARGB(255, 156, 255, 162),
+      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color(0x29000000),
+          offset: Offset(0, 4),
+          blurRadius: 3,
+        ),
+      ],
+    ),
+    child: Text(
+      'Lunch Break ($starttime - $endtime)',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.jost(
+          color: Colors.black, fontSize: 18, fontWeight: FontWeight.w400),
+    ),
+  );
 }
