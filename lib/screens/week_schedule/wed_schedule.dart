@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'mon_schedule.dart';
 
 class WednesdaySchedule extends StatefulWidget {

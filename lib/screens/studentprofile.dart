@@ -3,6 +3,8 @@ import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'homework.dart';
+
 class StudentProfilePage extends StatefulWidget {
   const StudentProfilePage({Key? key}) : super(key: key);
 
@@ -239,7 +241,14 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                       Features(
                         imageUrl: 'assets/images/homework.png',
                         title: 'HOMEWORK',
-                        ontouch: () {},
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomeWork(),
+                            ),
+                          );
+                        },
                         gradient: const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,

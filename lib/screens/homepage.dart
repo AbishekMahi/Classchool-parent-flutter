@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
+import 'announcement_msg.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -223,6 +225,14 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, friday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/adh_school.png",
+                      ontouch: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AnnouncementMsg(),
+                          ),
+                        );
+                      },
                     ),
                     AnnouncementWidget(
                       title: "Tomorrow Holiday",
@@ -230,6 +240,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/school1.png",
+                      ontouch: () {},
                     ),
                     AnnouncementWidget(
                       title: "Parents Meeting",
@@ -237,6 +248,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, monday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/school2.png",
+                      ontouch: () {},
                     ),
                     AnnouncementWidget(
                       title: "Parents Meeting",
@@ -244,6 +256,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, friday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/adh_school.png",
+                      ontouch: () {},
                     ),
                     AnnouncementWidget(
                       title: "Parents Meeting",
@@ -251,6 +264,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, monday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/school2.png",
+                      ontouch: () {},
                     ),
                     AnnouncementWidget(
                       title: "Parents Meeting",
@@ -258,6 +272,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, monday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/school1.png",
+                      ontouch: () {},
                     ),
                     AnnouncementWidget(
                       title: "Parents Meeting",
@@ -265,6 +280,7 @@ class _HomePageState extends State<HomePage> {
                           "Hello parents, monday morning 10:30 am you have parents meeting.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/school2.png",
+                      ontouch: () {},
                     ),
                   ],
                 ),
@@ -313,14 +329,16 @@ Widget childrenProfile({
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(name,
-                overflow: TextOverflow.clip,
-                style: GoogleFonts.jost(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500),
-                maxLines: 1,
-                textAlign: TextAlign.center),
+            child: Text(
+              name,
+              overflow: TextOverflow.clip,
+              maxLines: 1,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.jost(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),
@@ -328,82 +346,69 @@ Widget childrenProfile({
   );
 }
 
-// ignore: must_be_immutable
-class AnnouncementWidget extends StatefulWidget {
-  String imageUrl;
-  String title;
-  String subTitle;
-  String time;
-  AnnouncementWidget(
-      {required this.imageUrl,
-      required this.title,
-      required this.subTitle,
-      required this.time,
-      Key? key})
-      : super(key: key);
-
-  @override
-  State<AnnouncementWidget> createState() => _AnnouncementWidgetState();
-}
-
-class _AnnouncementWidgetState extends State<AnnouncementWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 8),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0x29000000),
-              offset: Offset(0, 3),
-              blurRadius: 2,
-            ),
+// ignore: non_constant_identifier_names
+Widget AnnouncementWidget({
+  required String title,
+  required String subTitle,
+  required String imageUrl,
+  required String time,
+  required void Function() ontouch,
+}) {
+  return InkWell(
+    onTap: ontouch,
+    child: Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        color: const Color(0XFFEDEDED),
+        // gradient: const LinearGradient(
+        //     begin: Alignment.topCenter,
+        //     end: Alignment.bottomCenter,
+        //     colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x29000000),
+            offset: Offset(1, 3),
+            blurRadius: 2,
+          ),
+        ],
+      ),
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+        leading: ClipOval(
+          child: Image.asset(
+            imageUrl,
+          ),
+        ),
+        title: Text(
+          title,
+          style: GoogleFonts.jost(
+              color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
+        ),
+        subtitle: Text(
+          subTitle,
+          style: GoogleFonts.jost(
+              color: Colors.black87,
+              fontSize: 14,
+              height: 1.2,
+              fontWeight: FontWeight.w400),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.start,
+        ),
+        trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              time,
+              style: GoogleFonts.jost(
+                  color: Colors.black54,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500),
+            )
           ],
         ),
-        child: ListTile(
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-          leading: ClipOval(
-            child: Image.asset(
-              widget.imageUrl,
-            ),
-          ),
-          title: Text(
-            widget.title,
-            style: GoogleFonts.jost(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
-          ),
-          subtitle: Text(
-            widget.subTitle,
-            style: GoogleFonts.jost(
-                color: Colors.black87,
-                fontSize: 14,
-                height: 1.2,
-                fontWeight: FontWeight.w400),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.start,
-          ),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                widget.time,
-                style: GoogleFonts.jost(
-                    color: Colors.black54,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500),
-              )
-            ],
-          ),
-        ),
       ),
-    );
-  }
+    ),
+  );
 }
