@@ -1,9 +1,13 @@
-import 'package:classchool/screens/class_schedule.dart';
+import 'package:classchool/screens/features/attendence.dart';
+import 'package:classchool/screens/features/class_schedule.dart';
+import 'package:classchool/screens/features/communicate.dart';
+import 'package:classchool/screens/features/results.dart';
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'homework.dart';
+import 'features/homework.dart';
+import 'features/homework.dart';
 
 class StudentProfilePage extends StatefulWidget {
   const StudentProfilePage({Key? key}) : super(key: key);
@@ -261,7 +265,14 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                       Features(
                         imageUrl: 'assets/images/speak.png',
                         title: 'COMMUNICATE',
-                        ontouch: () {},
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Communicate(),
+                            ),
+                          );
+                        },
                         gradient: const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -292,29 +303,45 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                         ),
                       ),
                       Features(
-                          imageUrl: 'assets/images/attendence.png',
-                          title: 'ATTTENDENCE',
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0XFFE9E9E9),
-                              Color(0XFFFCBDBD),
-                            ],
-                          ),
-                          ontouch: () {}),
+                        imageUrl: 'assets/images/attendence.png',
+                        title: 'ATTTENDENCE',
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0XFFE9E9E9),
+                            Color(0XFFFCBDBD),
+                          ],
+                        ),
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Attendence(),
+                            ),
+                          );
+                        },
+                      ),
                       Features(
-                          imageUrl: 'assets/images/result.png',
-                          title: 'RESULTS',
-                          gradient: const LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0XFFE9E9E9),
-                              Color(0XFFF6BAEE),
-                            ],
-                          ),
-                          ontouch: () {}),
+                        imageUrl: 'assets/images/result.png',
+                        title: 'RESULTS',
+                        gradient: const LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color(0XFFE9E9E9),
+                            Color(0XFFF6BAEE),
+                          ],
+                        ),
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Results(),
+                            ),
+                          );
+                        },
+                      ),
                       Features(
                           imageUrl: 'assets/images/event.png',
                           title: 'EVENTS',

@@ -1,6 +1,7 @@
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AnnouncementMsg extends StatefulWidget {
   const AnnouncementMsg({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class AnnouncementMsg extends StatefulWidget {
 }
 
 class _AnnouncementMsgState extends State<AnnouncementMsg> {
+  bool _isSaved = true;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +28,7 @@ class _AnnouncementMsgState extends State<AnnouncementMsg> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text(
-            "Message",
+            "Announcement",
             style: GoogleFonts.jost(
                 color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
           ),
@@ -44,40 +46,66 @@ class _AnnouncementMsgState extends State<AnnouncementMsg> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/adh_school.png',
-                          width: 70,
-                        ),
-                      ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    Row(
                       children: [
-                        Text(
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          textAlign: TextAlign.center,
-                          'Parents Meeting',
-                          style: GoogleFonts.jost(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/images/adh_school.png',
+                              width: 70,
+                            ),
+                          ),
                         ),
-                        Text(
-                          "Today 9:00 PM",
-                          style: GoogleFonts.jost(
-                              color: Colors.black54,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              textAlign: TextAlign.center,
+                              'Parents Meeting',
+                              style: GoogleFonts.jost(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            Text(
+                              "Today 9:00 PM",
+                              style: GoogleFonts.jost(
+                                  color: Colors.black54,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
                         ),
                       ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          showToast;
+                          _isSaved = !_isSaved;
+                        });
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xAEE0E0E0),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Icon(
+                          _isSaved
+                              ? Icons.bookmark_border_outlined
+                              : Icons.bookmark_outlined,
+                          color: appThemeBottom,
+                          size: 30,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -99,4 +127,15 @@ class _AnnouncementMsgState extends State<AnnouncementMsg> {
       ),
     );
   }
+}
+
+void showToast() {
+  Fluttertoast.showToast(
+      msg: "Message Saved",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: const Color.fromARGB(255, 113, 255, 118),
+      textColor: Colors.black87,
+      fontSize: 16.0);
 }
