@@ -82,7 +82,7 @@ class _HomeWorkState extends State<HomeWork> {
                         end: Alignment.bottomRight,
                         colors: [
                           Color(0XFFE9E9E9),
-                          Color(0XFFFFADAD),
+                          Color(0xFFFFBCBC),
                         ],
                       ),
                       msgtime: 'Today 5:00 PM',
@@ -233,7 +233,7 @@ class _HomeWorkState extends State<HomeWork> {
                         end: Alignment.bottomRight,
                         colors: [
                           Color(0XFFE9E9E9),
-                          Color(0XFFFFADAD),
+                          Color(0xFFFFBCBC),
                         ],
                       ),
                       msgtime: 'Today 5:00 PM',

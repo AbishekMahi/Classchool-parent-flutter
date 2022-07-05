@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import '../utils/constants.dart';
-import 'week_schedule/fri_schedule.dart';
-import 'week_schedule/mon_schedule.dart';
-import 'week_schedule/sat_schedule.dart';
-import 'week_schedule/thu_schedule.dart';
-import 'week_schedule/tues_schedule.dart';
-import 'week_schedule/wed_schedule.dart';
+import '../../utils/constants.dart';
+import '../week_schedule/fri_schedule.dart';
+import '../week_schedule/mon_schedule.dart';
+import '../week_schedule/sat_schedule.dart';
+import '../week_schedule/thu_schedule.dart';
+import '../week_schedule/tues_schedule.dart';
+import '../week_schedule/wed_schedule.dart';
 
 class ClassSchedule extends StatefulWidget {
   const ClassSchedule({Key? key}) : super(key: key);
