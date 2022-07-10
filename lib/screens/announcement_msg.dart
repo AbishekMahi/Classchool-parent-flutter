@@ -131,11 +131,12 @@ class _AnnouncementMsgState extends State<AnnouncementMsg> {
 
 void showToast() {
   Fluttertoast.showToast(
-      msg: "Message Saved",
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: const Color.fromARGB(255, 113, 255, 118),
-      textColor: Colors.black87,
-      fontSize: 16.0);
+    msg: "Message Saved",
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: const Color(0xFF71FF76),
+    textColor: Colors.black87,
+    fontSize: 16.0,
+  );
 }

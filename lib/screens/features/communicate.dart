@@ -1,7 +1,6 @@
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../studentprofile.dart';
 
 class Communicate extends StatefulWidget {
   const Communicate({Key? key}) : super(key: key);

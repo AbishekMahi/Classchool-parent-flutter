@@ -195,13 +195,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: Container(
-                        width: 80.0,
-                        height: 80.0,
                         decoration: BoxDecoration(
-                          image: const DecorationImage(
-                            image: AssetImage('assets/images/man.jpg'),
-                            fit: BoxFit.fill,
-                          ),
                           borderRadius: BorderRadius.circular(75.0),
                           border: Border.all(
                               width: 3.0, color: const Color(0xffffffff)),
@@ -212,6 +206,20 @@ class _ProfilePageState extends State<ProfilePage> {
                               blurRadius: 6,
                             ),
                           ],
+                        ),
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundImage:
+                              const AssetImage('assets/images/man.jpg'),
+                          backgroundColor: Colors.grey,
+                          child: GestureDetector(
+                            onTap: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (_) => const ProfileImage(),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -247,7 +255,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ontouch: () {},
                       ),
                       ExtraFeatures(
-                        imageUrl: 'assets/images/file.png',
+                        imageUrl: 'assets/images/bell.png',
                         title: 'Notification Setting',
                         ontouch: () {},
                       ),
@@ -316,4 +324,23 @@ Widget ExtraFeatures({
       ),
     ),
   );
+}
+
+class ProfileImage extends StatelessWidget {
+  const ProfileImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Container(
+        width: 250,
+        height: 280,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: ExactAssetImage('assets/images/man.jpg'),
+              fit: BoxFit.cover),
+        ),
+      ),
+    );
+  }
 }

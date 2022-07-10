@@ -5,8 +5,6 @@ import 'package:classchool/screens/features/results.dart';
 import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'features/homework.dart';
 import 'features/homework.dart';
 
 class StudentProfilePage extends StatefulWidget {
@@ -203,13 +201,7 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: Container(
-                        width: 70.0,
-                        height: 70.0,
                         decoration: BoxDecoration(
-                          image: const DecorationImage(
-                            image: AssetImage('assets/images/boy.png'),
-                            fit: BoxFit.fill,
-                          ),
                           borderRadius: BorderRadius.circular(75.0),
                           border: Border.all(
                               width: 2.0, color: const Color(0xffffffff)),
@@ -220,6 +212,19 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
                               blurRadius: 6,
                             ),
                           ],
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage:
+                              const AssetImage('assets/images/boy.png'),
+                          child: GestureDetector(
+                            onTap: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (_) => const StudentImage(),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
@@ -414,4 +419,23 @@ Widget Features({
       ),
     ),
   );
+}
+
+class StudentImage extends StatelessWidget {
+  const StudentImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Container(
+        width: 250,
+        height: 280,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: ExactAssetImage('assets/images/boy.png'),
+              fit: BoxFit.cover),
+        ),
+      ),
+    );
+  }
 }
