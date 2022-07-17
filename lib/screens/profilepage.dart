@@ -1,4 +1,5 @@
 import 'package:classchool/utils/constants.dart';
+import 'package:classchool/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +13,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -38,9 +41,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Stack(
                     children: [
+              
                     Container(
                       margin: const EdgeInsets.only(
-                          right: 15, bottom: 15, left: 15),
+                          right: 15, bottom: 15, left: 15, top: 30),
                       padding: const EdgeInsets.only(
                           top: 40, right: 10, bottom: 10, left: 10),
                       decoration: BoxDecoration(
@@ -55,6 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ],
                       ),
                       child: Column(children: [
+                         
                         CustomProfileWidget(
                           title: 'Full Name',
                           subtitle: 'Madhesh',
@@ -86,8 +91,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ]),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
+                            Positioned(
+                              right: (SizeConfig.screenWidth!/2),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(75.0),
