@@ -2,6 +2,8 @@ import 'package:classchool/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'chat_page.dart';
+
 class Communicate extends StatefulWidget {
   const Communicate({Key? key}) : super(key: key);
 
@@ -133,7 +135,14 @@ class _CommunicateState extends State<Communicate> {
                           "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
                       time: "9:00 PM",
                       imageUrl: "assets/images/male1.jpg",
-                      ontouch: () {},
+                      ontouch: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ChatPage(),
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(height: 8),
                     teacherMsg(

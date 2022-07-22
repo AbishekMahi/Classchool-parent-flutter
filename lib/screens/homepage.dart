@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey();
   String greetingMessage() {
     var timeNow = DateTime.now().hour;
     if (timeNow <= 12) {
@@ -44,248 +45,330 @@ class _HomePageState extends State<HomePage> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [appThemeTop, appThemeBottom])),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 0,
+      child: SafeArea(
+        child: Scaffold(
           backgroundColor: Colors.transparent,
-          title: Text(
-            greetingMessage(),
-            style: GoogleFonts.jost(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.notifications_rounded,
-                color: Color(0xFFF9D645),
-              ),
-              iconSize: 32,
-            ),
-            IconButton(
-              padding: const EdgeInsets.only(right: 10),
-              onPressed: () {},
-              icon: const Icon(
-                EvaIcons.menu2,
-              ),
-              iconSize: 32,
-            )
-          ],
-        ),
-        body: RefreshIndicator(
-          triggerMode: RefreshIndicatorTriggerMode.onEdge,
-          backgroundColor: const Color(0xFFEDE9FF),
-          strokeWidth: 2,
-          color: const Color(0XFF7455F7),
-          onRefresh: _refresh,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(children: [
-              Container(
-                margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                // height: SizeConfig.screenHeight! * 0.22,
-                decoration: BoxDecoration(
+          key: _scaffoldkey,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            title: Text(
+              greetingMessage(),
+              style: GoogleFonts.jost(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color(0x29000000),
-                      offset: Offset(0, 4),
-                      blurRadius: 3,
-                    ),
-                  ],
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_rounded,
+                  color: Color(0xFFF9D645),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "CHILDREN PROFILES",
-                          style: GoogleFonts.jost(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        )
-                      ],
+                iconSize: 32,
+              ),
+              StatefulBuilder(
+                builder: (BuildContext context, setState) {
+                  return IconButton(
+                    icon: const Icon(
+                      EvaIcons.menu2,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    iconSize: 32,
+                    onPressed: () {
+                      _scaffoldkey.currentState!.openEndDrawer();
+                    },
+                  );
+                },
+              )
+            ],
+          ),
+          endDrawer: Drawer(
+              child: Container(
+            color: Colors.white,
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  child: Column(
+                    children: [
+                      const CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage('assets/images/man.jpg'),
+                        backgroundColor: Colors.grey,
+                      ),
+                      Text(
+                        'Madhan Kumar',
+                        textAlign: TextAlign.start,
+                        style: GoogleFonts.jost(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.settings,
+                    size: 28,
+                  ),
+                  title: Text(
+                    'Settings',
+                    textAlign: TextAlign.start,
+                    style: GoogleFonts.jost(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.settings,
+                    size: 28,
+                  ),
+                  title: Text(
+                    'Settings',
+                    textAlign: TextAlign.start,
+                    style: GoogleFonts.jost(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.settings,
+                    size: 28,
+                  ),
+                  title: Text(
+                    'Settings',
+                    textAlign: TextAlign.start,
+                    style: GoogleFonts.jost(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () {},
+                ),
+              ],
+            ),
+          )),
+          body: RefreshIndicator(
+            triggerMode: RefreshIndicatorTriggerMode.onEdge,
+            backgroundColor: const Color(0xFFEDE9FF),
+            strokeWidth: 2,
+            color: const Color(0XFF7455F7),
+            onRefresh: _refresh,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(15, 5, 15, 15),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  // height: SizeConfig.screenHeight! * 0.22,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x29000000),
+                        offset: Offset(0, 4),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          childrenProfile(
-                              imageUrl: 'assets/images/boy.png',
-                              name: 'Ajith Kumar',
-                              ontouch: () {
+                          Text(
+                            "CHILDREN PROFILES",
+                            style: GoogleFonts.jost(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            childrenProfile(
+                                imageUrl: 'assets/images/boy.png',
+                                name: 'Ajith Kumar',
+                                ontouch: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const StudentProfilePage(),
+                                    ),
+                                  );
+                                }),
+                            childrenProfile(
+                                imageUrl: 'assets/images/girl.png',
+                                name: 'Anitha',
+                                ontouch: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const StudentProfilePage(),
+                                    ),
+                                  );
+                                }),
+                            childrenProfile(
+                                imageUrl: 'assets/images/boy.png',
+                                name: 'Arun',
+                                ontouch: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const StudentProfilePage(),
+                                    ),
+                                  );
+                                }),
+                            InkWell(
+                              onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const StudentProfilePage(),
+                                    builder: (context) => addNewStudent(),
                                   ),
                                 );
-                              }),
-                          childrenProfile(
-                              imageUrl: 'assets/images/girl.png',
-                              name: 'Anitha',
-                              ontouch: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const StudentProfilePage(),
-                                  ),
-                                );
-                              }),
-                          childrenProfile(
-                              imageUrl: 'assets/images/boy.png',
-                              name: 'Arun',
-                              ontouch: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const StudentProfilePage(),
-                                  ),
-                                );
-                              }),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => addNewStudent(),
-                                ),
-                              );
-                            },
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: ClipOval(
-                                child: Hero(
-                                  tag: 'addIcon',
-                                  child: Image.asset(
-                                    "assets/images/add_icon.png",
-                                    width: 45,
-                                    fit: BoxFit.cover,
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: ClipOval(
+                                  child: Hero(
+                                    tag: 'addIcon',
+                                    child: Image.asset(
+                                      "assets/images/add_icon.png",
+                                      width: 45,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  // height: SizeConfig.screenHeight! * 0.555,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0x29000000),
+                        offset: Offset(0, 4),
+                        blurRadius: 3,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "ANNOUNCEMENTS",
+                            style: GoogleFonts.jost(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500),
+                          )
                         ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, friday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/adh_school.png",
+                        ontouch: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AnnouncementMsg(),
+                            ),
+                          );
+                        },
+                      ),
+                      AnnouncementWidget(
+                        title: "Tomorrow Holiday",
+                        subTitle:
+                            "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/school1.png",
+                        ontouch: () {},
+                      ),
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, monday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/school2.png",
+                        ontouch: () {},
+                      ),
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, friday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/adh_school.png",
+                        ontouch: () {},
+                      ),
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, monday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/school2.png",
+                        ontouch: () {},
+                      ),
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, monday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/school1.png",
+                        ontouch: () {},
+                      ),
+                      AnnouncementWidget(
+                        title: "Parents Meeting",
+                        subTitle:
+                            "Hello parents, monday morning 10:30 am you have parents meeting.",
+                        time: "9:00 PM",
+                        imageUrl: "assets/images/school2.png",
+                        ontouch: () {},
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 15),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                // height: SizeConfig.screenHeight! * 0.555,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color(0x29000000),
-                      offset: Offset(0, 4),
-                      blurRadius: 3,
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "ANNOUNCEMENTS",
-                          style: GoogleFonts.jost(
-                              color: Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, friday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/adh_school.png",
-                      ontouch: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const AnnouncementMsg(),
-                          ),
-                        );
-                      },
-                    ),
-                    AnnouncementWidget(
-                      title: "Tomorrow Holiday",
-                      subTitle:
-                          "Hello parents, tomorrow will holiday because of heavy rain. stay safe.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/school1.png",
-                      ontouch: () {},
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, monday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/school2.png",
-                      ontouch: () {},
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, friday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/adh_school.png",
-                      ontouch: () {},
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, monday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/school2.png",
-                      ontouch: () {},
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, monday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/school1.png",
-                      ontouch: () {},
-                    ),
-                    AnnouncementWidget(
-                      title: "Parents Meeting",
-                      subTitle:
-                          "Hello parents, monday morning 10:30 am you have parents meeting.",
-                      time: "9:00 PM",
-                      imageUrl: "assets/images/school2.png",
-                      ontouch: () {},
-                    ),
-                  ],
-                ),
-              ),
-            ]),
+              ]),
+            ),
           ),
         ),
       ),
@@ -360,10 +443,6 @@ Widget AnnouncementWidget({
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: const Color(0XFFEDEDED),
-        // gradient: const LinearGradient(
-        //     begin: Alignment.topCenter,
-        //     end: Alignment.bottomCenter,
-        //     colors: [Color(0XFFF6F1FF), Color(0XFFEDEDED)]),
         borderRadius: BorderRadius.circular(10),
         boxShadow: const [
           BoxShadow(
