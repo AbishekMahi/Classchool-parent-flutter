@@ -1,4 +1,5 @@
 import 'package:classchool/utils/constants.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -57,6 +58,7 @@ class _ChatPageState extends State<ChatPage> {
           actions: [
             IconButton(
               onPressed: () {},
+              splashRadius: 26,
               icon: const Icon(
                 Icons.phone,
               ),
@@ -65,6 +67,7 @@ class _ChatPageState extends State<ChatPage> {
             IconButton(
               padding: const EdgeInsets.only(right: 10),
               onPressed: () {},
+              splashRadius: 26,
               icon: const Icon(
                 Icons.more_vert,
               ),
@@ -76,15 +79,32 @@ class _ChatPageState extends State<ChatPage> {
           children: [
             const Spacer(),
             Container(
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(5),
+              // color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 8),
               child: Row(
                 children: [
+                  CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.white, //<-- SEE HERE
+                    child: IconButton(
+                      splashRadius: 26,
+                      icon: const Icon(
+                        EvaIcons.attach,
+                        color: appThemeBottom,
+                        size: 28,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
+                        // border: Border.all(color: Colors.black45),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: const TextField(
@@ -92,21 +112,45 @@ class _ChatPageState extends State<ChatPage> {
                         textCapitalization: TextCapitalization.sentences,
                         enableSuggestions: true,
                         decoration: InputDecoration(
-                          hintText: 'Message',
+                          hintText: 'Type your message...',
                           hintStyle: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w400),
                           border: InputBorder.none,
                         ),
                       ),
                     ),
-                  ), 
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.mic,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.white, //<-- SEE HERE
+                    child: IconButton(
+                      splashRadius: 26,
+                      icon: const Icon(
+                        EvaIcons.micOutline,
+                        color: appThemeBottom,
+                        size: 28,
+                      ),
+                      onPressed: () {},
                     ),
-                    color: Colors.white,
-                    iconSize: 30,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  CircleAvatar(
+                    radius: 22,
+                    backgroundColor: Colors.white,
+                    child: IconButton(
+                      splashRadius: 26,
+                      icon: const Icon(
+                        EvaIcons.paperPlane,
+                        color: appThemeBottom,
+                        size: 28,
+                      ),
+                      onPressed: () {},
+                    ),
                   ),
                 ],
               ),

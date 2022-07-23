@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final IconData prefixIcon;
   final bool obscureText;
+  final int? maxlength;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
@@ -17,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     required this.prefixIcon,
     required this.obscureText,
     this.controller,
+    this.maxlength,
     this.validator,
     this.keyboardType,
   }) : super(key: key);
@@ -30,6 +32,7 @@ class CustomTextField extends StatelessWidget {
         style: GoogleFonts.jost(fontSize: 18, color: Colors.white),
         keyboardType: keyboardType,
         obscureText: obscureText,
+        maxLength: maxlength,
         decoration: InputDecoration(
           prefixIcon: Icon(
             prefixIcon,

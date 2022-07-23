@@ -53,12 +53,10 @@ class OtpPage extends StatelessWidget {
                             color: Colors.white),
                       ),
                     ),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
                     CustomTextField(
                       labelText: 'Enter the 6-digit code',
                       hintText: 'Enter your OTP',
+                      maxlength: 6,
                       prefixIcon: Icons.numbers,
                       keyboardType: TextInputType.number,
                       obscureText: false,

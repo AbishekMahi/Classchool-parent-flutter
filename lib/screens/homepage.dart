@@ -1,6 +1,7 @@
 import 'package:classchool/screens/intro_screens/add_new_student.dart';
 import 'package:classchool/screens/studentprofile.dart';
 import 'package:classchool/utils/constants.dart';
+import 'package:classchool/utils/menu_list.dart';
 import 'package:classchool/utils/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey();
+  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey();
   String greetingMessage() {
     var timeNow = DateTime.now().hour;
     if (timeNow <= 12) {
@@ -63,6 +64,7 @@ class _HomePageState extends State<HomePage> {
             actions: [
               IconButton(
                 onPressed: () {},
+                splashRadius: 26,
                 icon: const Icon(
                   Icons.notifications_rounded,
                   color: Color(0xFFF9D645),
@@ -72,6 +74,7 @@ class _HomePageState extends State<HomePage> {
               StatefulBuilder(
                 builder: (BuildContext context, setState) {
                   return IconButton(
+                    splashRadius: 26,
                     icon: const Icon(
                       EvaIcons.menu2,
                     ),
@@ -84,78 +87,7 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-          endDrawer: Drawer(
-              child: Container(
-            color: Colors.white,
-            child: ListView(
-              children: [
-                DrawerHeader(
-                  child: Column(
-                    children: [
-                      const CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage('assets/images/man.jpg'),
-                        backgroundColor: Colors.grey,
-                      ),
-                      Text(
-                        'Madhan Kumar',
-                        textAlign: TextAlign.start,
-                        style: GoogleFonts.jost(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.settings,
-                    size: 28,
-                  ),
-                  title: Text(
-                    'Settings',
-                    textAlign: TextAlign.start,
-                    style: GoogleFonts.jost(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.settings,
-                    size: 28,
-                  ),
-                  title: Text(
-                    'Settings',
-                    textAlign: TextAlign.start,
-                    style: GoogleFonts.jost(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(
-                    Icons.settings,
-                    size: 28,
-                  ),
-                  title: Text(
-                    'Settings',
-                    textAlign: TextAlign.start,
-                    style: GoogleFonts.jost(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400),
-                  ),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          )),
+          endDrawer: const MenuList(),
           body: RefreshIndicator(
             triggerMode: RefreshIndicatorTriggerMode.onEdge,
             backgroundColor: const Color(0xFFEDE9FF),
@@ -193,14 +125,16 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.black,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500),
-                          )
+                          ),
                         ],
+                      ),
+                      const SizedBox(
+                        height: 5,
                       ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             childrenProfile(
                                 imageUrl: 'assets/images/boy.png',
@@ -217,18 +151,6 @@ class _HomePageState extends State<HomePage> {
                             childrenProfile(
                                 imageUrl: 'assets/images/girl.png',
                                 name: 'Anitha',
-                                ontouch: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const StudentProfilePage(),
-                                    ),
-                                  );
-                                }),
-                            childrenProfile(
-                                imageUrl: 'assets/images/boy.png',
-                                name: 'Arun',
                                 ontouch: () {
                                   Navigator.push(
                                     context,
@@ -261,6 +183,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
+                            ),
+                            const SizedBox(
+                              width: 200,
                             ),
                           ],
                         ),
